@@ -1,18 +1,24 @@
+\newcolumntype{A} { > {\centering\arraybackslash } p{35pt} }
+\newcolumntype{D} { > {\centering\arraybackslash } p{66pt} }
 % BANNER INFO
 \newcommand{\CharacterNameValue}{}
 \newcommand{\ClassValue}{}
+\newcommand{\SubclassValue}{}
 \newcommand{\BackgroundValue}{}
 \newcommand{\PlayerNameValue}{}
-\newcommand{\RaceValue}{}
+\newcommand{\SpeciesValue}{}
 \newcommand{\AlignmentValue}{}
 \newcommand{\XPValue}{}
+\newcommand{\LevelValue}{}
 
 \newcommand{\CharacterName}[1]{\renewcommand{\CharacterNameValue}{#1}}
 \newcommand{\Class}[1]{\renewcommand{\ClassValue}{#1}}
+\newcommand{\Subclass}[1]{\renewcommand{\SubclassValue}{#1}}
 \newcommand{\Background}[1]{\renewcommand{\BackgroundValue}{#1}}
 \newcommand{\PlayerName}[1]{\renewcommand{\PlayerNameValue}{#1}}
-\newcommand{\Race}[1]{\renewcommand{\RaceValue}{#1}}
+\newcommand{\Species}[1]{\renewcommand{\SpeciesValue}{#1}}
 \newcommand{\Alignment}[1]{\renewcommand{\AlignmentValue}{#1}}
+\newcommand{\Level}[1]{\renewcommand{\LevelValue}{#1}}
 \newcommand{\XP}[1]{\renewcommand{\XPValue}{#1}}
 
 % PROFICIENCY ETC
@@ -116,7 +122,7 @@
 \newcommand{\CurrentHitPointsValue}{}
 \newcommand{\TemporaryHitPointsValue}{}
 \newcommand{\MaxHitDiceValue}{}
-\newcommand{\CurrentHitDiceValue}{}
+\newcommand{\SpentHitDiceValue}{}
 
 \newcommand{\ArmorClass}[1]{\renewcommand{\ArmorClassValue}{#1}}
 \newcommand{\Initiative}[1]{\renewcommand{\InitiativeValue}{#1}}
@@ -125,7 +131,7 @@
 \newcommand{\CurrentHitPoints}[1]{\renewcommand{\CurrentHitPointsValue}{#1}}
 \newcommand{\TemporaryHitPoints}[1]{\renewcommand{\TemporaryHitPointsValue}{#1}}
 \newcommand{\MaxHitDice}[1]{\renewcommand{\MaxHitDiceValue}{#1}}
-\newcommand{\CurrentHitDice}[1]{\renewcommand{\CurrentHitDiceValue}{#1}}
+\newcommand{\SpentHitDice}[1]{\renewcommand{\SpentHitDiceValue}{#1}}
 
 % MONEY
 \newcommand{\CPValue}{}
@@ -155,8 +161,14 @@
 \newcommand\WeaponsHeld{}
 
 \makeatletter
-\newcommand\AddWeapon[3]{%
-	\g@addto@macro\WeaponsHeld{\\ \entryfont \textcolor{text-color}{#1} & \entryfont \textcolor{text-color}{#2} & \entryfont \textcolor{text-color}{#3}}
+\newcommand\AddWeapon[4]{%
+	\g@addto@macro\WeaponsHeld{%
+	\\[7.5pt]%
+	\entryfont \textcolor{text-color}{#1} &
+	\entryfont \textcolor{text-color}{#2} &
+	\entryfont \textcolor{text-color}{#3} &
+	\entryfont \textcolor{text-color}{#4}
+	}
 }
 \makeatother
 
@@ -1150,3 +1162,27 @@
 \newcommand{\NinthLevelSpellSlotFPrepared}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{level9prepared6}{0 0 0}}{\newrgbcolor{level9prepared6}{1 1 1}}}
 \newrgbcolor{level9prepared7}{1 1 1}
 \newcommand{\NinthLevelSpellSlotGPrepared}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{level9prepared7}{0 0 0}}{\newrgbcolor{level9prepared7}{1 1 1}}}
+
+% Zweispalten-Box mit sauberer erster Zeile in Spalte 2
+\newcommand{\TwoColBoxFixed}[3]{% #1=Breite, #2=Höhe, #3=Inhalt
+  \begingroup
+    \setlength{\splittopskip}{\baselineskip}% verhindert Hochrutschen
+    \setbox0=\vbox{%
+      \hsize=#1/2\relax
+      \noindent #3%
+    }%
+    % Zielhöhen
+    \dimen0=#2\relax
+    % Spalte 1 via \vsplit
+    \setbox1=\vsplit0 to \dimen0
+    % Ausgabe: zwei Spalten nebeneinander
+    \hbox to #1{%
+      \vbox to #2{\hsize=#1/2\relax \unvbox1 \vfil}%
+      \hfil
+      \vbox to #2{\hsize=#1/2\relax
+        \noindent\leavevmode\strut% definiert sauberen ersten Zeilenabstand
+        \unvbox0 \vfil
+      }%
+    }%
+  \endgroup
+}

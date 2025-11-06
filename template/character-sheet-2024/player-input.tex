@@ -1,0 +1,144 @@
+\newcommand{\addplus}[1]{\IfBeginWith{#1}{-}{#1}{+#1}}
+
+%%%%% TOP LEFT BLOCK
+% CHARACTER NAME
+\rput[l](20,999){\begin{fitbox}{7.6cm}{18pt}{\LARGE} \entryfont \textcolor{text-color}{\CharacterNameValue} \end{fitbox}}
+
+% HEADER INFORMATION
+%Background
+\rput[l](20,969){\begin{fitbox}{3.9cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\BackgroundValue} \end{fitbox}}
+%Species
+\rput[l](20,940){\begin{fitbox}{3.9cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\SpeciesValue} \end{fitbox}}
+%Class
+\rput[l](185,969){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\ClassValue} \end{fitbox}}
+%TODO: Subclass
+\rput[l](185,940){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\SubclassValue} \end{fitbox}}
+
+%%%%% TOP MIDDLE
+%TODO: Level
+\rput[cc](362,974){\begin{fitbox}{1cm}{15pt}{\Large} \centering \entryfont \textcolor{text-color}{\LevelValue} \end{fitbox}}
+%XP
+\rput[cc](363,945){\begin{fitbox}{1cm}{15pt}{\Large} \centering \entryfont \textcolor{text-color}{\XPValue} \end{fitbox}}
+
+%%%%% TOP RIGHT
+% BATTLE STATS
+\rput[cc](450,970){\LARGE \entryfont \textcolor{text-color}{\ArmorClassValue}}
+\rput[cc](530,945){\LARGE \entryfont \textcolor{text-color}{\CurrentHitPointsValue}}
+\rput[cc](600,974){\Large \entryfont \textcolor{text-color}{\TemporaryHitPointsValue}}
+\rput[cc](600,945){\Large \entryfont \textcolor{text-color}{\MaxHitPointsValue}}
+
+\rput[cc](680,974){\Large \entryfont \textcolor{text-color}{\SpentHitDiceValue}}
+\rput[cc](680,945){\Large \entryfont \textcolor{text-color}{\MaxHitDiceValue}}
+
+%%%%% CENTER
+\rput[cc](340,840){\begin{fitbox}{40pt}{24pt}{\LARGE}\centering  \entryfont \textcolor{text-color}{\addplus{\InitiativeValue}}\end{fitbox}}
+\rput[cc](465,840){\begin{fitbox}{40pt}{24pt}{\LARGE} \centering \entryfont \textcolor{text-color}{\SpeedValue} \end{fitbox}}
+\rput[cc](590,840){\begin{fitbox}{40pt}{24pt}{\LARGE} \centering \entryfont \textcolor{text-color}{\HeightValue} \end{fitbox}}
+\rput[cc](725,840){\begin{fitbox}{40pt}{24pt}{\LARGE} \centering \entryfont \textcolor{text-color}{\PerceptionValue}\end{fitbox}}
+
+
+%TODO: move to page 2
+%\rput[l](498.21666949,943.226667535){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\AlignmentValue} \end{fitbox}}
+
+
+% PROFICIENCY ETC
+%\rput[cc](143.42533022,869.816111585){\Large \entryfont \textcolor{text-color}{\InspirationValue}}
+\rput[cc](78,830){\LARGE \entryfont \textcolor{text-color}{\addplus{\ProficiencyValue}}}
+
+
+% MODIFIERS
+\rput[cc](60,734){\LARGE \entryfont \textcolor{text-color}{\addplus{\StrengthModifierValue}}}
+\rput[cc](60,578){\LARGE \entryfont \textcolor{text-color}{\addplus{\DexterityModifierValue}}}
+\rput[cc](60,383){\LARGE \entryfont \textcolor{text-color}{\addplus{\ConstitutionModifierValue}}}
+\rput[cc](200,838){\LARGE \entryfont \textcolor{text-color}{\addplus{\IntelligenceModifierValue}}}
+\rput[cc](200,606){\LARGE \entryfont \textcolor{text-color}{\addplus{\WisdomModifierValue}}}
+\rput[cc](200,374){\LARGE \entryfont \textcolor{text-color}{\addplus{\CharismaModifierValue}}}
+
+% ABILITY SCORES
+\rput[cc](99,727){\entryfont \textcolor{text-color}{\StrengthScoreValue}}
+\rput[cc](99,571){\entryfont \textcolor{text-color}{\DexterityScoreValue}}
+\rput[cc](99,375){\entryfont \textcolor{text-color}{\ConstitutionScoreValue}}
+\rput[cc](239,831){\entryfont \textcolor{text-color}{\IntelligenceScoreValue}}
+\rput[cc](239,599){\entryfont \textcolor{text-color}{\WisdomScoreValue}}
+\rput[cc](239,367){\entryfont \textcolor{text-color}{\CharismaScoreValue}}
+
+% SAVING THROWS
+\rput[cc](50,677){\footnotesize \entryfont \textcolor{text-color}{\addplus{\StrengthSavingThrowModifierValue}}}
+\rput[cc](50,520){\footnotesize \entryfont \textcolor{text-color}{\addplus{\DexteritySavingThrowModifierValue}}}
+\rput[cc](50,325){\footnotesize \entryfont \textcolor{text-color}{\addplus{\ConstitutionSavingThrowModifierValue}}}
+\rput[cc](190,780){\footnotesize \entryfont \textcolor{text-color}{\addplus{\IntelligenceSavingThrowModifierValue}}}
+\rput[cc](190,548){\footnotesize \entryfont \textcolor{text-color}{\addplus{\WisdomSavingThrowModifierValue}}}
+\rput[cc](190,316){\footnotesize \entryfont \textcolor{text-color}{\addplus{\CharismaSavingThrowModifierValue}}}
+
+% SKILLS
+\rput[cc](50,494){\footnotesize \entryfont \textcolor{text-color}{\addplus{\AcrobaticsSkillModifierValue}}}
+\rput[cc](190,523){\footnotesize \entryfont \textcolor{text-color}{\addplus{\AnimalHandlingSkillModifierValue}}}
+\rput[cc](190,755){\footnotesize \entryfont \textcolor{text-color}{\addplus{\ArcanaSkillModifierValue}}}
+\rput[cc](50,652){\footnotesize \entryfont \textcolor{text-color}{\addplus{\AthleticsSkillModifierValue}}} %-26y
+\rput[cc](190,291){\footnotesize \entryfont \textcolor{text-color}{\addplus{\DeceptionSkillModifierValue}}}
+\rput[cc](190,736){\footnotesize \entryfont \textcolor{text-color}{\addplus{\HistorySkillModifierValue}}}
+\rput[cc](190,504){\footnotesize \entryfont \textcolor{text-color}{\addplus{\InsightSkillModifierValue}}}
+\rput[cc](190,272){\footnotesize \entryfont \textcolor{text-color}{\addplus{\IntimidationSkillModifierValue}}}
+\rput[cc](190,717){\footnotesize \entryfont \textcolor{text-color}{\addplus{\InvestigationSkillModifierValue}}}
+\rput[cc](190,485){\footnotesize \entryfont \textcolor{text-color}{\addplus{\MedicineSkillModifierValue}}}
+\rput[cc](190,698){\footnotesize \entryfont \textcolor{text-color}{\addplus{\NatureSkillModifierValue}}}
+\rput[cc](190,466){\footnotesize \entryfont \textcolor{text-color}{\addplus{\PerceptionSkillModifierValue}}}
+\rput[cc](190,253){\footnotesize \entryfont \textcolor{text-color}{\addplus{\PerformanceSkillModifierValue}}}
+\rput[cc](190,234){\footnotesize \entryfont \textcolor{text-color}{\addplus{\PersuasionSkillModifierValue}}}
+\rput[cc](190,680){\footnotesize \entryfont \textcolor{text-color}{\addplus{\ReligionSkillModifierValue}}}
+\rput[cc](50,476){\footnotesize \entryfont \textcolor{text-color}{\addplus{\SleightOfHandSkillModifierValue}}} %y-19
+\rput[cc](50,457){\footnotesize \entryfont \textcolor{text-color}{\addplus{\StealthSkillModifierValue}}}
+\rput[cc](190,447){\footnotesize \entryfont \textcolor{text-color}{\addplus{\SurvivalSkillModifierValue}}}
+
+%%%%% Seite 2
+%TODO: MONEY
+%\rput[cc](325.27479187,245.72826052){\Large \entryfont \textcolor{text-color}{\CPValue}}
+%\rput[cc](325.27479187,211.12092805){\Large \entryfont \textcolor{text-color}{\SPValue}}
+%\rput[cc](325.27479187,176.51346225){\Large \entryfont \textcolor{text-color}{\EPValue}}
+%\rput[cc](325.27479187,141.90639645){\Large \entryfont \textcolor{text-color}{\GPValue}}
+%\rput[cc](325.27479187,107.29839731){\Large \entryfont \textcolor{text-color}{\PPValue}}
+
+% FREEFORM ENTRY
+
+% ATTACKS AND SPELLCASTING
+\IfPackageLoadedTF{dnd}
+{
+	\rput[lt](305,801){\parbox{356pt}{\justify\entryfont
+%			\begin{DndTable}{XllX}
+			\begin{tabular}{p{94pt} A D p{110pt}}
+			%TODO: Spalten anpassen, Höhe anpassen
+%				\tiny \textcolor{tertiary-indicator-color}{\textsf{NAME}}        &
+%				\tiny \textcolor{tertiary-indicator-color}{\textsf{ATK BONUS}}   &
+%				\tiny \textcolor{tertiary-indicator-color}{\textsf{DAMAGE/TYPE}}
+%				&
+%				\tiny \textcolor{tertiary-indicator-color}{\textsf{NOTES}}
+				\WeaponsHeld
+%			\end{DndTable}
+			\end{tabular}
+
+%			\textcolor{text-color}{\AttacksAdditionalValue}
+		}
+	}
+}
+
+%\rput[lt](37,220){\begin{fitbox}{168pt}{4.65cm}{\normalsize} \entryfont \justify \textcolor{text-color}{\OtherProficienciesLanguagesValue} \end{fitbox}}
+%TODO: Auf Seite 2
+%\rput[lt](353,264){\begin{fitbox}{118pt}{5.8cm}{\normalsize} \entryfont \justify \textcolor{text-color}{\EquipmentValue} \end{fitbox}}
+
+
+\rput[lt](305,570){% 
+\begin{minipage}[t][200pt][t]{356pt}
+\setlength{\multicolsep}{0pt}
+\setlength{\columnsep}{10pt} 
+\begin{multicols}{2}\raggedcolumns %couldn't make raggedcolumns work, might need some further investigation as everything else is done
+ \entryfont \justify \textcolor{text-color}{\FeaturesTraitsValue}
+\end{multicols}	
+\end{minipage}
+}
+
+
+% PERSONALITY
+%\rput[lt](551,870){\begin{fitbox}{153pt}{1.8cm}{\footnotesize} \entryfont \justify \textcolor{text-color}{\PersonalityTraitsValue} \end{fitbox}}
+%\rput[lt](551,778){\begin{fitbox}{153pt}{1.35cm}{\footnotesize} \entryfont \justify \textcolor{text-color}{\IdealsValue} \end{fitbox}}
+%\rput[lt](551,704){\begin{fitbox}{5.4cm}{1.3cm}{\footnotesize} \entryfont \justify \textcolor{text-color}{\BondsValue} \end{fitbox}}
+%\rput[lt](551,631){\begin{fitbox}{5.4cm}{1.3cm}{\footnotesize} \entryfont \justify \textcolor{text-color}{\FlawsValue} \end{fitbox}}
