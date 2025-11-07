@@ -1,174 +1,174 @@
-% This code taken from:
-% https://tex.stackexchange.com/questions/26002/fit-text-into-given-box-by-adjusting-the-fontsize
-\usepackage{environ}% http://ctan.org/pkg/environ
+% New fitbox, based on the replies here:
+%% https://tex.stackexchange.com/questions/754560/textbox-with-two-columns-that-adjusts-font-size-but-also-fill-one-column-before/754579#754579
+% microtype package was already loaded elsewhere so I just needed to add the options
 
-\sloppypar
+\microtypesetup{final,expansion=false,protrusion=true}
 
-\newdimen\fontdim
-\newdimen\upperfontdim
-\newdimen\lowerfontdim
+\setlength{\columnsep}{12pt} % gap between columns
 
-\newif\ifmoreiterations
+% ---------- internals (no '@') ----------
+\newdimen\fitFontDim
+\newdimen\fitUpper
+\newdimen\fitLower
+\newdimen\fitMeasureDim
+\newif\iffitMore
+\newbox\fitTmp
+\newbox\fitColA
+\newbox\fitColB
+\newdimen\fitLineWidth
+\newbox\fitSingle
+% ----------------------------------------
 
-\newbox\trialbox
-\newbox\linebox
-\global\newcount\maxbad
-\newcount\linebad
-\newcount\currenthbadness
-
-\makeatletter
-\NewEnviron{fitbox}[3]{% \begin{fitbox}{<width>}{<height>}{<fontsize>} stuff \end{fitbox}
-  #3 \fontdim\the\fontdimen6\font\relax%
-    % Store environment body
-    \def\stuff{%
-        \BODY%
+% \begin{fitbox}{<width>}{<height>}{<font switch>} ... \end{fitbox}
+\NewDocumentEnvironment{fitbox2}{mmm +b}
+{%
+  % local line-breaking policy: allow hyphenation and enable microtype
+  \microtypesetup{activate=true}%
+  \vbadness=10000
+  \hbadness=10000
+  \tolerance=2000           % moderate
+  \pretolerance=100
+  \emergencystretch=.6em    % small emergency stretch (visually unobtrusive)
+  \hyphenpenalty=50
+  \exhyphenpenalty=50
+  %
+  #3 \fitFontDim\the\fontdimen6\font\relax
+  \def\fitStuff{#4}%
+  % --- build step: two columns without interline stretch ---
+  \def\fitBuild{%
+    \setbox\fitTmp=\vbox{%
+      \hsize=\dimexpr(#1-\columnsep)/2\relax
+      \parskip=0pt
+      \fontsize{\fitFontDim}{1.2\fitFontDim}\selectfont
+      \fitStuff\par
     }%
-    % prepare badness box
-    \def\badnessbox{%
-        \global\maxbad=0\relax%
-        \currenthbadness=\hbadness% save old \hbadness
-        \hbadness=10000000\relax% make sure, TeX reports overfull boxes
-        %\message{Starting measureline recursion with width #1^^J}%
-        \setbox\trialbox=\vbox{%
-            \hsize#1\relax%
-            \fontsize{\fontdim}{1.2\fontdim}%
-            \selectfont%
-            \stuff\par%
-            \measurelines% start recursion
-        }%
-%       \noindent\usebox\trialbox\par
-        \hbadness=\currenthbadness% restore old \hbadness
-    }
-    % prepare recursion to measure line badness
-    \def\measurelines{%
-        %\message{Iteration of measurelines^^J}%
-        \begingroup%
-            \setbox\linebox=\lastbox% get the last line
-            \setbox0=\hbox to \hsize{\unhcopy\linebox}% put the last line into box0 to provoke badness calculation
-            \linebad=\the\badness\relax% \badness now reflects the last typeset box, i.e. box0
-            %\message{Badness: \the\badness\space\the\linebad\space with max \the\maxbad\space at Fontsize: \the\fontdim\space^^J}%
-            \ifnum\linebad>\maxbad% store the maximum badness
-                \global\maxbad=\linebad% Uncomment this line to ignore overfull hboxes!
-            \fi%
-            \ifvoid% end of recursion
-                \linebox%
-            \else%
-                \unskip\unpenalty\measurelines% do the recursion
-                \ifhmode%
-                    \newline%
-                \fi%
-                \noindent\box\linebox% do the output
-            \fi%
-        \endgroup%
+    \splittopskip=0pt \splitmaxdepth=0pt
+    \setbox\fitColA=\vsplit\fitTmp to #2
+    \setbox\fitColB=\vsplit\fitTmp to #2
+    \dp\fitColA=0pt \dp\fitColB=0pt
+    \setbox0=\hbox{%
+      \vbox{\nointerlineskip \prevdepth=-1000pt \box\fitColA}%
+      \hskip\columnsep
+      \vbox{\nointerlineskip \prevdepth=-1000pt \box\fitColB}%
     }%
-    % Prepare measurement box
-    \def\buildbox{%
-        \badnessbox% measure badness
-        \setbox0\vbox{% measure height
-            \hbox{%
-                \fontsize{\fontdim}{1.2\fontdim}%
-                \selectfont%
-                \minipage{#1}%
-                    \vbox{%
-                        \stuff\par%
-                    }%
-                \endminipage%
-            }%
-        }%
-        %\message{Measured badness: \the\maxbad\space at Fontsize: \the\fontdim\space^^J}%
-        \dimen@\ht0
-        \advance\dimen@\dp0
-        %\message{Measured box height: \the\dimen@\space^^J}%
-    }%
-    \def\shrinkheight{%
-        \loop
-            \fontdim.5\fontdim % Reduce font size by half
-            \buildbox
-            %\message{Shrinking, new box height: \the\dimen@\space at Fontsize: \the\fontdim\space^^J}%
-        \ifdim\dimen@>#2%
-            \ifdim\fontdim>.1pt \repeat
-        \fi%
-        \lowerfontdim\fontdim
-        \upperfontdim2\fontdim
-        \fontdim1.5\fontdim
-    }%
-    \def\shrinkwidth{%
-        \loop
-            \fontdim.5\fontdim % Reduce font size by half
-            \buildbox
-        \ifnum\maxbad>10000%
-            \ifdim\fontdim>.1pt \repeat
-        \fi%
-        \lowerfontdim\fontdim
-        \upperfontdim2\fontdim
-        \fontdim1.5\fontdim
-    }%
-    \def\growheight{%
-        \loop
-            \fontdim2\fontdim % Double font size
-            \buildbox
-            %\message{Growing, new box height: \the\dimen@\space at Fontsize: \the\fontdim\space^^J}%
-        \ifdim\dimen@<#2 \repeat
-        \upperfontdim\fontdim
-        \lowerfontdim.5\fontdim
-        \fontdim.75\fontdim
-    }%
-    \buildbox
-    % Compute upper and lower bounds
-    \ifdim\dimen@>#2
-        %\message{Need to shrink box height: \the\dimen@\space^^J}%
-        \shrinkheight
-%    \else
-%        %\message{Need to grow box height: \the\dimen@\space to target: #2^^J}%
-%        \growheight
+    \ifvoid\fitTmp
+      \fitMeasureDim=#2\relax
+    \else
+      \fitMeasureDim=\dimexpr #2+1pt\relax
     \fi
-    %\message{Max font: \the\upperfontdim\space^^J}%
-    %\message{Min font: \the\lowerfontdim\space^^J}%
-    % Potentially further reduce bounds for overfull box
-    \ifnum\maxbad>10000
-        \shrinkwidth
-    \fi
-    %\message{Max font adjusted: \the\upperfontdim\space^^J}%
-    %\message{Min font adjusted: \the\lowerfontdim\space^^J}%
-    % Now try to find the optimum height and width
+  }%
+  % --- coarse shrink until the height fits ---
+  \def\fitShrink{%
     \loop
-        \buildbox
-        %\message{Height: \the\dimen@\space^^J}%
-        \ifdim\dimen@>#2
-            \ifdim\fontdim>.2pt
-                \moreiterationstrue
-                \upperfontdim\fontdim
-                \advance\fontdim\lowerfontdim
-                \fontdim.5\fontdim
-            \fi
-        \else
-            \ifnum\maxbad>10000
-                \ifdim\fontdim>.2pt
-                    \moreiterationstrue
-                    \upperfontdim\fontdim
-                    \advance\fontdim\lowerfontdim
-                    \fontdim.5\fontdim
-                \fi
-            \else
-                \advance\dimen@-#2
-                \ifdim\dimen@<10pt
-                    \lowerfontdim\fontdim
-                    \advance\fontdim\upperfontdim
-                    \fontdim.5\fontdim
-                    \dimen@\upperfontdim
-                    \advance\dimen@-\lowerfontdim
-                    \ifdim\dimen@<.2pt
-                        \moreiterationsfalse
-                    \else
-                        \moreiterationstrue
-                    \fi
-                \else
-                    \moreiterationsfalse
-                \fi
-            \fi
-        \fi
-    \ifmoreiterations \repeat
-    %\message{Selected font: \the\fontdim\space^^J}%
-    \vbox to #2{\box0\hbox{}}% Typeset content
-}%
-\makeatother
+      \fitFontDim.5\fitFontDim \fitBuild
+    \ifdim\fitMeasureDim>#2
+      \ifdim\fitFontDim>.1pt \repeat
+    \fi
+    \fitLower\fitFontDim \fitUpper2\fitFontDim \fitFontDim1.5\fitFontDim
+  }%
+  % --- fine tuning ---
+  \fitBuild
+  \ifdim\fitMeasureDim>#2 \fitShrink\fi
+  \loop
+    \fitBuild
+    \ifdim\fitMeasureDim>#2
+      \ifdim\fitFontDim>.2pt
+        \fitMoretrue
+        \fitUpper\fitFontDim \advance\fitFontDim\fitLower \fitFontDim.5\fitFontDim
+      \fi
+    \else
+      \advance\fitMeasureDim-#2
+      \ifdim\fitMeasureDim<10pt
+        \fitLower\fitFontDim \advance\fitFontDim\fitUpper \fitFontDim.5\fitFontDim
+        \fitMeasureDim=\fitUpper \advance\fitMeasureDim-\fitLower
+        \ifdim\fitMeasureDim<.2pt \fitMorefalse \else \fitMoretrue \fi
+      \else
+        \fitMorefalse
+      \fi
+    \fi
+  \iffitMore \repeat
+}
+{%
+  % final output: fixed height, blank space at the bottom
+  \dp0=0pt
+  \vbox to #2{%
+    \nointerlineskip \prevdepth=-1000pt
+    \box0
+    \vfil
+  }%
+}
+
+\NewDocumentEnvironment{fitbox}{mmm +b}
+{%
+  % local line-breaking policy: allow hyphenation and enable microtype
+  \microtypesetup{activate=true}%
+  \vbadness=10000
+  \hbadness=10000
+  \tolerance=2000           % moderate
+  \pretolerance=100
+  \emergencystretch=.6em    % small emergency stretch (visually unobtrusive)
+  \hyphenpenalty=50
+  \exhyphenpenalty=50
+  %
+  #3 \fitFontDim\the\fontdimen6\font\relax
+  \def\fitStuff{#4}%
+  % --- build step: one column ---
+  \def\fitBuild{%
+    \setbox\fitSingle=\hbox{%
+	\fontsize{\fitFontDim}{1.2\fitFontDim}\selectfont
+	\fitStuff
+	}%
+	\fitLineWidth=\wd\fitSingle
+    \setbox\fitTmp=\vbox{%
+      \hsize=#1\relax
+      \parskip=0pt
+      \fontsize{\fitFontDim}{1.2\fitFontDim}\selectfont
+      \fitStuff\par
+      
+    }%
+    \setbox0=\box\fitTmp
+      \fitMeasureDim=\ht0
+	\ifdim\fitLineWidth>#1
+	\fitMeasureDim=\dimexpr #2+1pt\relax % erzwingt Shrink-Runde
+	\fi  
+  }%
+  % --- coarse shrink until the height fits ---
+  \def\fitShrink{%
+    \loop
+      \fitFontDim.5\fitFontDim \fitBuild
+    \ifdim\fitMeasureDim>#2
+      \ifdim\fitFontDim>.1pt \repeat
+    \fi
+    \fitLower\fitFontDim \fitUpper2\fitFontDim \fitFontDim1.5\fitFontDim
+  }%
+  % --- fine tuning ---
+  \fitBuild
+  \ifdim\fitMeasureDim>#2 \fitShrink\fi
+  \loop
+    \fitBuild
+    \ifdim\fitMeasureDim>#2
+      \ifdim\fitFontDim>.2pt
+        \fitMoretrue
+        \fitUpper\fitFontDim \advance\fitFontDim\fitLower \fitFontDim.5\fitFontDim
+      \fi
+    \else
+      \advance\fitMeasureDim-#2
+      \ifdim\fitMeasureDim<10pt
+        \fitLower\fitFontDim \advance\fitFontDim\fitUpper \fitFontDim.5\fitFontDim
+        \fitMeasureDim=\fitUpper \advance\fitMeasureDim-\fitLower
+        \ifdim\fitMeasureDim<.2pt \fitMorefalse \else \fitMoretrue \fi
+      \else
+        \fitMorefalse
+      \fi
+    \fi
+  \iffitMore \repeat
+}
+{%
+  % final output: fixed height, blank space at the bottom
+  \dp0=0pt
+  \vbox to #2{%
+    \nointerlineskip \prevdepth=-1000pt
+    \box0
+    \vfil
+  }%
+}

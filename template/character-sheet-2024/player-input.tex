@@ -11,18 +11,18 @@
 \rput[l](20,940){\begin{fitbox}{3.9cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\SpeciesValue} \end{fitbox}}
 %Class
 \rput[l](185,969){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\ClassValue} \end{fitbox}}
-%TODO: Subclass
+%Subclass
 \rput[l](185,940){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\SubclassValue} \end{fitbox}}
 
 %%%%% TOP MIDDLE
-%TODO: Level
 \rput[cc](362,974){\begin{fitbox}{1cm}{15pt}{\Large} \centering \entryfont \textcolor{text-color}{\LevelValue} \end{fitbox}}
 %XP
-\rput[cc](363,945){\begin{fitbox}{1cm}{15pt}{\Large} \centering \entryfont \textcolor{text-color}{\XPValue} \end{fitbox}}
+\rput[cc](363,945){\begin{fitbox}{1cm}{15pt}{\Large} \centering \entryfont \textcolor{text-color}{Milestone} \end{fitbox}}
 
 %%%%% TOP RIGHT
 % BATTLE STATS
 \rput[cc](450,970){\LARGE \entryfont \textcolor{text-color}{\ArmorClassValue}}
+%TODO: Shield-Marker
 \rput[cc](530,945){\LARGE \entryfont \textcolor{text-color}{\CurrentHitPointsValue}}
 \rput[cc](600,974){\Large \entryfont \textcolor{text-color}{\TemporaryHitPointsValue}}
 \rput[cc](600,945){\Large \entryfont \textcolor{text-color}{\MaxHitPointsValue}}
@@ -37,12 +37,15 @@
 \rput[cc](725,840){\begin{fitbox}{40pt}{24pt}{\LARGE} \centering \entryfont \textcolor{text-color}{\PerceptionValue}\end{fitbox}}
 
 
-%TODO: move to page 2
-%\rput[l](498.21666949,943.226667535){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\AlignmentValue} \end{fitbox}}
+
 
 
 % PROFICIENCY ETC
 %\rput[cc](143.42533022,869.816111585){\Large \entryfont \textcolor{text-color}{\InspirationValue}}
+%not sure what this is for ... like bardic inspiraction or heroic inspiration ... 
+
+%TODO: Heroic inspiration needs a marker (Found it, need to finish it)
+
 \rput[cc](78,830){\LARGE \entryfont \textcolor{text-color}{\addplus{\ProficiencyValue}}}
 
 
@@ -91,14 +94,6 @@
 \rput[cc](190.35,447.38){\footnotesize \entryfont \textcolor{text-color}{\addplus{\SurvivalSkillModifierValue}}}
 
 
-%%%%% Seite 2
-%TODO: MONEY
-%\rput[cc](325.27479187,245.72826052){\Large \entryfont \textcolor{text-color}{\CPValue}}
-%\rput[cc](325.27479187,211.12092805){\Large \entryfont \textcolor{text-color}{\SPValue}}
-%\rput[cc](325.27479187,176.51346225){\Large \entryfont \textcolor{text-color}{\EPValue}}
-%\rput[cc](325.27479187,141.90639645){\Large \entryfont \textcolor{text-color}{\GPValue}}
-%\rput[cc](325.27479187,107.29839731){\Large \entryfont \textcolor{text-color}{\PPValue}}
-
 % FREEFORM ENTRY
 
 % ATTACKS AND SPELLCASTING
@@ -115,20 +110,72 @@
 	}
 }
 
-%\rput[lt](37,220){\begin{fitbox}{168pt}{4.65cm}{\normalsize} \entryfont \justify \textcolor{text-color}{\OtherProficienciesLanguagesValue} \end{fitbox}}
-%TODO: Auf Seite 2
-%\rput[lt](353,264){\begin{fitbox}{118pt}{5.8cm}{\normalsize} \entryfont \justify \textcolor{text-color}{\EquipmentValue} \end{fitbox}}
 
 
 \rput[lt](305,570){% 
-\begin{minipage}[t][200pt][t]{356pt}
+\begin{fitbox2}{356pt}{200pt}{\normalsize}
 \setlength{\multicolsep}{0pt}
 \setlength{\columnsep}{10pt} 
-\begin{multicols}{2}\raggedcolumns %couldn't make raggedcolumns work, might need some further investigation as everything else is done
- \entryfont \justify \textcolor{text-color}{\FeaturesTraitsValue}
-\end{multicols}	
-\end{minipage}
+ \entryfont \justify \textcolor{text-color}{\ClassFeaturesValue}
+\end{fitbox2}
 }
+
+\rput[lt](292.5,245){% 
+%\fbox{
+\begin{fitbox}{165pt}{175pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\SpecialTraitsValue}
+\end{fitbox}
+%}
+}
+
+\rput[lt](537.5,245){% 
+%\fbox{
+\begin{fitbox}{175pt}{165pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\FeatsValue}
+\end{fitbox}
+%}
+}
+
+% EQUIPMENT TRAINING & PROFICIENCIES
+\rput[lt](15,142){% 
+%\fbox{
+\begin{fitbox}{185pt}{50pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\WeaponsProficienciesValue}
+\end{fitbox}
+%}
+}
+\rput[lt](15,62){% 
+%\fbox{
+\begin{fitbox}{185pt}{33pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\ToolsProficienciesValue}
+\end{fitbox}
+%}
+}
+
+%\psframe[	linestyle = solid,
+%			linewidth = 2pt,
+%			linecolor = red,
+%			fillstyle = none]%
+%		 (440,920)(470,940)
+
+
+%%%%% Seite 2
+%TODO: MONEY
+%\rput[cc](325.27479187,245.72826052){\Large \entryfont \textcolor{text-color}{\CPValue}}
+%\rput[cc](325.27479187,211.12092805){\Large \entryfont \textcolor{text-color}{\SPValue}}
+%\rput[cc](325.27479187,176.51346225){\Large \entryfont \textcolor{text-color}{\EPValue}}
+%\rput[cc](325.27479187,141.90639645){\Large \entryfont \textcolor{text-color}{\GPValue}}
+%\rput[cc](325.27479187,107.29839731){\Large \entryfont \textcolor{text-color}{\PPValue}}
+
+
+%TODO: ALIGNMENT
+%\rput[l](498.21666949,943.226667535){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\AlignmentValue} \end{fitbox}}
+
+
+%TODO: Language
+%\rput[lt](37,220){\begin{fitbox}{168pt}{4.65cm}{\normalsize} \entryfont \justify \textcolor{text-color}{\OtherProficienciesLanguagesValue} \end{fitbox}}
+%TODO: Equipment Value
+%\rput[lt](353,264){\begin{fitbox}{118pt}{5.8cm}{\normalsize} \entryfont \justify \textcolor{text-color}{\EquipmentValue} \end{fitbox}}
 
 
 % PERSONALITY

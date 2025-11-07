@@ -7,7 +7,7 @@
 \newcommand{\BackgroundValue}{}
 \newcommand{\PlayerNameValue}{}
 \newcommand{\SpeciesValue}{}
-\newcommand{\AlignmentValue}{}
+\newcommand{\AlignmentValue}{} %not in the banner
 \newcommand{\XPValue}{}
 \newcommand{\LevelValue}{}
 
@@ -146,16 +146,19 @@
 \newcommand{\EP}[1]{\renewcommand{\EPValue}{#1}}
 \newcommand{\PP}[1]{\renewcommand{\PPValue}{#1}}
 
-\newcommand{\OtherProficienciesLanguagesValue}{}
-\newcommand{\AttacksAdditionalValue}{}
 \newcommand{\EquipmentValue}{}
-\newcommand{\FeaturesTraitsValue}{}
 
-% ADDITIONAL INFORMATION
-\newcommand{\OtherProficienciesLanguages}[1]{\renewcommand{\OtherProficienciesLanguagesValue}{\raggedright#1}}
-\newcommand{\AttacksAdditional}[1]{\renewcommand{\AttacksAdditionalValue}{#1}}
-\newcommand{\Equipment}[1]{\renewcommand{\EquipmentValue}{#1}}
-\newcommand{\FeaturesTraits}[1]{\renewcommand{\FeaturesTraitsValue}{#1}}
+% EQUIPMENT TRAINING & PROFICIENCIES
+%Armor Training
+%TODO: Armor Proficiencies
+
+%Weapons
+\newcommand{\WeaponsProficienciesValue}{}
+\newcommand{\WeaponsProficiencies}[1]{\renewcommand{\WeaponsProficienciesValue}{#1}}
+
+%Tools
+\newcommand{\ToolsProficienciesValue}{}
+\newcommand{\ToolsProficiencies}[1]{\renewcommand{\ToolsProficienciesValue}{#1}}
 
 % WEAPONS GENERATOR COMMAND 
 % added 4th information (notes) ... has to be blank or will cause error
@@ -172,6 +175,35 @@
 	}
 }
 \makeatother
+
+%old, replaced (maybe include it into each other, to get cross-compatibility)
+\newcommand{\FeaturesTraitsValue}{}
+%not sure
+\newcommand{\OtherProficienciesLanguagesValue}{}
+\newcommand{\AttacksAdditionalValue}{}
+
+% CLASS FEATURES
+\newcommand{\ClassFeaturesValue}{}
+\newcommand{\ClassFeatures}[1]{\renewcommand{\ClassFeaturesValue}{#1}}
+
+% SPECIES TRAITS
+\newcommand{\SpecialTraitsValue}{}
+\newcommand{\SpecialTraits}[1]{\renewcommand{\SpecialTraitsValue}{#1}}
+
+% FEATS
+\newcommand{\FeatsValue}{}
+\newcommand{\Feats}[1]{\renewcommand{\FeatsValue}{#1}}
+
+%not sure
+\newcommand{\OtherProficienciesLanguages}[1]{\renewcommand{\OtherProficienciesLanguagesValue}{\raggedright#1}}
+\newcommand{\AttacksAdditional}[1]{\renewcommand{\AttacksAdditionalValue}{#1}}
+\newcommand{\Equipment}[1]{\renewcommand{\EquipmentValue}{#1}}
+
+%old, replaced (maybe include it into each other, to get cross-compatibility)
+\newcommand{\FeaturesTraits}[1]{\renewcommand{\FeaturesTraitsValue}{#1}}
+
+
+
 
 % PERSONALITY
 \newcommand{\PersonalityTraitsValue}{}
@@ -876,6 +908,38 @@
 		\colorlet{survivalproficiency}{expert-proficiency-marker-color} \colorlet{survivalproficiencyhalf}{expert-proficiency-marker-color}}{}
 }
 
+\newrgbcolor{lightarmorproficiency}{1 1 1}
+\newrgbcolor{mediumarmorproficiency}{1 1 1}
+\newrgbcolor{heavyarmorproficiency}{1 1 1}
+\newrgbcolor{shieldproficiency}{1 1 1}
+\newrgbcolor{shieldequipped}{1 1 1}
+
+\newcommand{\LightArmorProficiency}[1]{%
+  \ifthenelse{\equal{#1}{Proficient}}%
+    {\colorlet{lightarmorproficiency}{proficiency-marker-color}}%
+    {}%
+}
+\newcommand{\MediumArmorProficiency}[1]{%
+  \ifthenelse{\equal{#1}{Proficient}}%
+    {\colorlet{mediumarmorproficiency}{proficiency-marker-color}}%
+    {}%
+}
+\newcommand{\HeavyArmorProficiency}[1]{%
+  \ifthenelse{\equal{#1}{Proficient}}%
+    {\colorlet{heavyarmorproficiency}{proficiency-marker-color}}%
+    {}%
+}
+\newcommand{\ShieldProficiency}[1]{%
+  \ifthenelse{\equal{#1}{Proficient}}%
+    {\colorlet{shieldproficiency}{proficiency-marker-color}}%
+    {}%
+}
+\newcommand{\ShieldEquipped}[1]{%
+  \ifthenelse{\equal{#1}{Equipped}}%
+    {\colorlet{shieldequipped}{proficiency-marker-color}}%
+    {}%
+}
+
 % SPELL PREPARED COLOR CHANGES
 
 % LEVEL 1
@@ -1164,26 +1228,3 @@
 \newrgbcolor{level9prepared7}{1 1 1}
 \newcommand{\NinthLevelSpellSlotGPrepared}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{level9prepared7}{0 0 0}}{\newrgbcolor{level9prepared7}{1 1 1}}}
 
-% Zweispalten-Box mit sauberer erster Zeile in Spalte 2
-\newcommand{\TwoColBoxFixed}[3]{% #1=Breite, #2=Höhe, #3=Inhalt
-  \begingroup
-    \setlength{\splittopskip}{\baselineskip}% verhindert Hochrutschen
-    \setbox0=\vbox{%
-      \hsize=#1/2\relax
-      \noindent #3%
-    }%
-    % Zielhöhen
-    \dimen0=#2\relax
-    % Spalte 1 via \vsplit
-    \setbox1=\vsplit0 to \dimen0
-    % Ausgabe: zwei Spalten nebeneinander
-    \hbox to #1{%
-      \vbox to #2{\hsize=#1/2\relax \unvbox1 \vfil}%
-      \hfil
-      \vbox to #2{\hsize=#1/2\relax
-        \noindent\leavevmode\strut% definiert sauberen ersten Zeilenabstand
-        \unvbox0 \vfil
-      }%
-    }%
-  \endgroup
-}

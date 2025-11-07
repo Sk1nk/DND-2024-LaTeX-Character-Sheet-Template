@@ -734,6 +734,66 @@
 		}
 	}
 }
+%Armor Training
+% -------- Light Armor --------
+\newcommand{\LightArmorProficiencyValue}{}% speichert "1" oder leer/"0"
+\newcommand{\SetLightArmorProficiency}[1]{%
+  \ifdimequal{#1 pt}{1 pt}{%
+    \renewcommand{\LightArmorProficiencyValue}{1}% Zahl merken
+    \LightArmorProficiency{Proficient}% Farbe schwarz
+  }{%
+    \renewcommand{\LightArmorProficiencyValue}{#1}% z. B. 0
+    \LightArmorProficiency{}% Farbe weiß
+  }%
+}
+
+% -------- Medium Armor --------
+\newcommand{\MediumArmorProficiencyValue}{}%
+\newcommand{\SetMediumArmorProficiency}[1]{%
+  \ifdimequal{#1 pt}{1 pt}{%
+    \renewcommand{\MediumArmorProficiencyValue}{1}%
+    \MediumArmorProficiency{Proficient}%
+  }{%
+    \renewcommand{\MediumArmorProficiencyValue}{#1}%
+    \MediumArmorProficiency{}%
+  }%
+}
+
+% -------- Heavy Armor --------
+\newcommand{\HeavyArmorProficiencyValue}{}%
+\newcommand{\SetHeavyArmorProficiency}[1]{%
+  \ifdimequal{#1 pt}{1 pt}{%
+    \renewcommand{\HeavyArmorProficiencyValue}{1}%
+    \HeavyArmorProficiency{Proficient}%
+  }{%
+    \renewcommand{\HeavyArmorProficiencyValue}{#1}%
+    \HeavyArmorProficiency{}%
+  }%
+}
+
+% -------- Shield Proficiency --------
+\newcommand{\ShieldProficiencyValue}{}%
+\newcommand{\SetShieldProficiency}[1]{%
+  \ifdimequal{#1 pt}{1 pt}{%
+    \renewcommand{\ShieldProficiencyValue}{1}%
+    \ShieldProficiency{Proficient}%
+  }{%
+    \renewcommand{\ShieldProficiencyValue}{#1}%
+    \ShieldProficiency{}%
+  }%
+}
+
+% -------- Shield Equipped --------
+\newcommand{\ShieldEquippedValue}{}%
+\newcommand{\SetShieldEquipped}[1]{%
+  \ifdimequal{#1 pt}{1 pt}{%
+    \renewcommand{\ShieldEquippedValue}{1}%
+    \ShieldEquipped{Equipped}%
+  }{%
+    \renewcommand{\ShieldEquippedValue}{#1}%
+    \ShieldEquipped{}%
+  }%
+}
 
 \newcommand{\SetSpellModifierStrength}[1]{
 	\SpellcastingAbility{STR}
