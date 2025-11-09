@@ -149,8 +149,6 @@
 \newcommand{\EquipmentValue}{}
 
 % EQUIPMENT TRAINING & PROFICIENCIES
-%Armor Training
-%TODO: Armor Proficiencies
 
 %Weapons
 \newcommand{\WeaponsProficienciesValue}{}
@@ -175,6 +173,106 @@
 	}
 }
 \makeatother
+
+% Spell GENERATOR COMMAND 
+% Thinking about 6 inputs <Level><Name><Cast Time><Range><CRM><Notes>
+\newcommand\SpellsReady{}
+
+% --- Gruppierte Zauberliste mit optionalen Notizen ---
+\makeatletter
+
+% Speicher je Grad (0..9) initial leer
+\newcommand*\SpellsReadyLevel@0{}
+\newcommand*\SpellsReadyLevel@1{}
+\newcommand*\SpellsReadyLevel@2{}
+\newcommand*\SpellsReadyLevel@3{}
+\newcommand*\SpellsReadyLevel@4{}
+\newcommand*\SpellsReadyLevel@5{}
+\newcommand*\SpellsReadyLevel@6{}
+\newcommand*\SpellsReadyLevel@7{}
+\newcommand*\SpellsReadyLevel@8{}
+\newcommand*\SpellsReadyLevel@9{}
+
+% Merker für zuletzt hinzugefügten Grad (für \AddSpellNote)
+\newcommand*\SpellLastLevel{}
+
+% Zeilenabstand innerhalb einer Gruppe und zwischen Gruppen
+\newcommand*\SpellRowSep{\\[7.5pt]}   % Abstand zwischen Zauberzeilen
+\newcommand*\SpellGroupSep{\\[10pt]}  % Leerzeile zwischen Graden
+
+% \AddSpellReady{level}{name}{casting}{range}{marker}{effect/notes}
+\newcommand\AddSpellReady[6]{%
+  \edef\SpellLastLevel{#1}% merke Grad für nachfolgende Notiz
+  % hänge die Tabellenzeile an die Liste des jeweiligen Grades
+  \expandafter\g@addto@macro\csname SpellsReadyLevel@#1\endcsname{%
+    \SpellRowSep
+    \entryfont\textcolor{text-color}{##1}\expandafter&\expandafter
+    \entryfont\textcolor{text-color}{##2}\expandafter&\expandafter
+    \entryfont\textcolor{text-color}{##3}\expandafter&\expandafter
+    \entryfont\textcolor{text-color}{##4}\expandafter&\expandafter
+    \entryfont\textcolor{text-color}{##5}\expandafter&\expandafter
+    \entryfont\textcolor{text-color}{##6}%
+  }%
+  % ersetze Platzhalter ##1..##6 durch die echten Argumente
+  \begingroup
+    \edef\temp{%
+      \noexpand\expandafter\noexpand\g@addto@macro
+      \expandafter\noexpand\csname SpellsReadyLevel@#1\endcsname{}%
+    }%
+  \endgroup
+}
+
+% Kurzform: Marker leer lassen
+\newcommand\AddSpellReadyNoMarker[5]{%
+  \AddSpellReady{#1}{#2}{#3}{#4}{}{#5}%
+}
+
+% Zusatzzeile direkt unter dem zuletzt hinzugefügten Zauber:
+% \AddSpellNote{Freitext}  -> \multicolumn{4}{l}{...} & &
+\newcommand\AddSpellNote[1]{%
+  \expandafter\g@addto@macro\csname SpellsReadyLevel@\SpellLastLevel\endcsname{%
+    \\[-2pt]%
+    \multicolumn{4}{@{}l}{\footnotesize\itshape #1} & &%
+  }%
+}
+
+% Ausgabe in aufsteigender Reihenfolge, mit Leerzeile zwischen belegten Graden
+\newcommand\PrintSpellsReady{%
+  \begingroup
+    \newcount\@lvl \@lvl=0%
+    \newcount\@printed \@printed=0%
+    \loop
+      \expandafter\let\expandafter\ThisLevel\csname SpellsReadyLevel@\the\@lvl\endcsname
+      \ifx\ThisLevel\@empty
+      \else
+        \ifnum\@printed>0 \SpellGroupSep\fi
+        \ThisLevel
+        \advance\@printed by 1\relax
+      \fi
+      \advance\@lvl by 1\relax
+      \ifnum\@lvl<10 \repeat
+  \endgroup
+}
+
+% Zurücksetzen aller Speicher (z.B. vor neuem Block)
+\newcommand\ResetSpellsReady{%
+  \renewcommand*\SpellsReadyLevel@0{}%
+  \renewcommand*\SpellsReadyLevel@1{}%
+  \renewcommand*\SpellsReadyLevel@2{}%
+  \renewcommand*\SpellsReadyLevel@3{}%
+  \renewcommand*\SpellsReadyLevel@4{}%
+  \renewcommand*\SpellsReadyLevel@5{}%
+  \renewcommand*\SpellsReadyLevel@6{}%
+  \renewcommand*\SpellsReadyLevel@7{}%
+  \renewcommand*\SpellsReadyLevel@8{}%
+  \renewcommand*\SpellsReadyLevel@9{}%
+  \renewcommand*\SpellLastLevel{}%
+}
+
+\makeatother
+
+
+
 
 %old, replaced (maybe include it into each other, to get cross-compatibility)
 \newcommand{\FeaturesTraitsValue}{}

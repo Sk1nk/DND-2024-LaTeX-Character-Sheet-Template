@@ -20,6 +20,7 @@
 % ----------------------------------------
 
 % \begin{fitbox}{<width>}{<height>}{<font switch>} ... \end{fitbox}
+
 \NewDocumentEnvironment{fitbox2}{mmm +b}
 {%
   % local line-breaking policy: allow hyphenation and enable microtype
@@ -38,11 +39,14 @@
   \def\fitBuild{%
     \setbox\fitTmp=\vbox{%
       \hsize=\dimexpr(#1-\columnsep)/2\relax
+		\topskip=0pt
       \parskip=0pt
+      \parindent=0pt
       \fontsize{\fitFontDim}{1.2\fitFontDim}\selectfont
       \fitStuff\par
     }%
-    \splittopskip=0pt \splitmaxdepth=0pt
+    \splittopskip=0pt
+    \splitmaxdepth=0pt
     \setbox\fitColA=\vsplit\fitTmp to #2
     \setbox\fitColB=\vsplit\fitTmp to #2
     \dp\fitColA=0pt \dp\fitColB=0pt
@@ -122,6 +126,7 @@
     \setbox\fitTmp=\vbox{%
       \hsize=#1\relax
       \parskip=0pt
+      \parindent=0pt
       \fontsize{\fitFontDim}{1.2\fitFontDim}\selectfont
       \fitStuff\par
       
