@@ -35,14 +35,6 @@
 \MaxHitDice{2d8}
 \SpentHitDice{}
 
-%TODO: Move to page 2
-\Alignment{Chaotic good}
-
-
-
-
-
-
 % Ability scores
 \StrengthScore{11}
 \DexterityScore{16}
@@ -114,8 +106,13 @@
 \SetSurvivalProficiency{0.5}
 
 \Inspiration{1}
+\HeroicInspiration{0}
 \Proficiency{2}
 \Perception{11}
+
+%TODO: Move to page 2
+\Alignment{Chaotic good}
+
 
 
 \Initiative{4}
@@ -239,6 +236,44 @@ Aaliyah is a female Half-Elf Bard.
 
 \FirstLevelSpellSlotsTotal{3}
 
+%\AddSpellReady<Level><Name><Casting Time><Range><CRM><Notes>
+\AddSpellReady{0}{Light}{MA}{Touch}{RM}{Bright Light 20ft, Dim 20tf}
+%AddSpellNote<Note, appears in the line below, centered on the left>
+\AddSpellNote{1x per LR}
+\AddSpellReady{0}{Magic Hand}{MA}{Touch}{CR}{}
+\AddSpellReady{1}{Detect Magic}{MA}{Self}{R}{within 30ft of you}
+\AddSpellNote{}
+\AddSpellNote{-- in book, but not prepared today--}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+\AddSpellReady{1}{Charm Person}{MA}{30ft}{}{Charmed condition}
+%\AddSpellReady{0}{Vicious Mockery}{MA}{Touch}{}{}
+
+%at the moment you need to sort them manually
+
+
+
 \FirstLevelSpellSlotA{Detect Magic}
 \FirstLevelSpellSlotAPrepared{True}
 \FirstLevelSpellSlotB{Dissonant Whispers}
@@ -262,11 +297,11 @@ Aaliyah is a female Half-Elf Bard.
 
 
 \newpage
-\rendercharactersheettf
+%\rendercharactersheettf
 
 
 \newpage
-%\renderspellsheettf
+\renderspellsheettf
 
 
 \end{document}

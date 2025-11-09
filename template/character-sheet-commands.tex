@@ -1,5 +1,10 @@
+
 \newcolumntype{A} { > {\centering\arraybackslash } p{35pt} }
 \newcolumntype{D} { > {\centering\arraybackslash } p{66pt} }
+\newcolumntype{L} { > {\centering\arraybackslash } p{15pt} }
+\newcolumntype{C} { > {\centering\arraybackslash } p{22pt} }
+\newcolumntype{R} { > {\centering\arraybackslash } p{33pt} }
+
 % BANNER INFO
 \newcommand{\CharacterNameValue}{}
 \newcommand{\ClassValue}{}
@@ -159,8 +164,9 @@
 \newcommand{\ToolsProficiencies}[1]{\renewcommand{\ToolsProficienciesValue}{#1}}
 
 % WEAPONS GENERATOR COMMAND 
-% added 4th information (notes) ... has to be blank or will cause error
-\newcommand\WeaponsHeld{}
+% --- added 4th information (notes) --- has to be blank or will cause error
+%TODO: make 4th command optional for cross-compatibility
+\newcommand{\WeaponsHeld}{}
 
 \makeatletter
 \newcommand\AddWeapon[4]{%
@@ -174,104 +180,70 @@
 }
 \makeatother
 
-% Spell GENERATOR COMMAND 
-% Thinking about 6 inputs <Level><Name><Cast Time><Range><CRM><Notes>
-\newcommand\SpellsReady{}
+%% Spell GENERATOR COMMAND 
+%% Thinking about 6 inputs <Level><Name><Cast Time><Range><CRM><Notes>
+% --- Row-Counter, Marker-Store, Getter ---
+\newcount\SpellRow
+\SpellRow=0
+\newcommand{\SpellRowStep}{\advance\SpellRow by 1\relax}
+\newcommand{\SpellRowReset}{\SpellRow=0\relax}
 
-% --- Gruppierte Zauberliste mit optionalen Notizen ---
+% --- Marker per row --- 
+\newcommand{\SpellMarkerStore}[1]{%
+  \expandafter\gdef\csname SpellMarker@\the\SpellRow\endcsname{#1}%
+}
+\newcommand{\SpellMarkerGet}[1]{\csname SpellMarker@#1\endcsname}
+
+% --- color logic per row (#1 = row number) ---
 \makeatletter
-
-% Speicher je Grad (0..9) initial leer
-\newcommand*\SpellsReadyLevel@0{}
-\newcommand*\SpellsReadyLevel@1{}
-\newcommand*\SpellsReadyLevel@2{}
-\newcommand*\SpellsReadyLevel@3{}
-\newcommand*\SpellsReadyLevel@4{}
-\newcommand*\SpellsReadyLevel@5{}
-\newcommand*\SpellsReadyLevel@6{}
-\newcommand*\SpellsReadyLevel@7{}
-\newcommand*\SpellsReadyLevel@8{}
-\newcommand*\SpellsReadyLevel@9{}
-
-% Merker für zuletzt hinzugefügten Grad (für \AddSpellNote)
-\newcommand*\SpellLastLevel{}
-
-% Zeilenabstand innerhalb einer Gruppe und zwischen Gruppen
-\newcommand*\SpellRowSep{\\[7.5pt]}   % Abstand zwischen Zauberzeilen
-\newcommand*\SpellGroupSep{\\[10pt]}  % Leerzeile zwischen Graden
-
-% \AddSpellReady{level}{name}{casting}{range}{marker}{effect/notes}
-\newcommand\AddSpellReady[6]{%
-  \edef\SpellLastLevel{#1}% merke Grad für nachfolgende Notiz
-  % hänge die Tabellenzeile an die Liste des jeweiligen Grades
-  \expandafter\g@addto@macro\csname SpellsReadyLevel@#1\endcsname{%
-    \SpellRowSep
-    \entryfont\textcolor{text-color}{##1}\expandafter&\expandafter
-    \entryfont\textcolor{text-color}{##2}\expandafter&\expandafter
-    \entryfont\textcolor{text-color}{##3}\expandafter&\expandafter
-    \entryfont\textcolor{text-color}{##4}\expandafter&\expandafter
-    \entryfont\textcolor{text-color}{##5}\expandafter&\expandafter
-    \entryfont\textcolor{text-color}{##6}%
-  }%
-  % ersetze Platzhalter ##1..##6 durch die echten Argumente
-  \begingroup
-    \edef\temp{%
-      \noexpand\expandafter\noexpand\g@addto@macro
-      \expandafter\noexpand\csname SpellsReadyLevel@#1\endcsname{}%
-    }%
-  \endgroup
+\newcommand{\MakeSpellFlagColors}[1]{%
+  \edef\Marker{\romannumeral-`0\SpellMarkerGet{#1}}%
+  \edef\nC{C#1}\edef\nR{R#1}\edef\nM{M#1}%
+  \expandafter\colorlet\expandafter{\nC}{yellow}%
+  \expandafter\colorlet\expandafter{\nR}{yellow}%
+  \expandafter\colorlet\expandafter{\nM}{yellow}%
+  \IfSubStr{\Marker}{C}{\expandafter\colorlet\expandafter{\nC}{black}}{}%
+  \IfSubStr{\Marker}{R}{\expandafter\colorlet\expandafter{\nR}{black}}{}%
+  \IfSubStr{\Marker}{M}{\expandafter\colorlet\expandafter{\nM}{black}}{}%
 }
-
-% Kurzform: Marker leer lassen
-\newcommand\AddSpellReadyNoMarker[5]{%
-  \AddSpellReady{#1}{#2}{#3}{#4}{}{#5}%
-}
-
-% Zusatzzeile direkt unter dem zuletzt hinzugefügten Zauber:
-% \AddSpellNote{Freitext}  -> \multicolumn{4}{l}{...} & &
-\newcommand\AddSpellNote[1]{%
-  \expandafter\g@addto@macro\csname SpellsReadyLevel@\SpellLastLevel\endcsname{%
-    \\[-2pt]%
-    \multicolumn{4}{@{}l}{\footnotesize\itshape #1} & &%
-  }%
-}
-
-% Ausgabe in aufsteigender Reihenfolge, mit Leerzeile zwischen belegten Graden
-\newcommand\PrintSpellsReady{%
-  \begingroup
-    \newcount\@lvl \@lvl=0%
-    \newcount\@printed \@printed=0%
-    \loop
-      \expandafter\let\expandafter\ThisLevel\csname SpellsReadyLevel@\the\@lvl\endcsname
-      \ifx\ThisLevel\@empty
-      \else
-        \ifnum\@printed>0 \SpellGroupSep\fi
-        \ThisLevel
-        \advance\@printed by 1\relax
-      \fi
-      \advance\@lvl by 1\relax
-      \ifnum\@lvl<10 \repeat
-  \endgroup
-}
-
-% Zurücksetzen aller Speicher (z.B. vor neuem Block)
-\newcommand\ResetSpellsReady{%
-  \renewcommand*\SpellsReadyLevel@0{}%
-  \renewcommand*\SpellsReadyLevel@1{}%
-  \renewcommand*\SpellsReadyLevel@2{}%
-  \renewcommand*\SpellsReadyLevel@3{}%
-  \renewcommand*\SpellsReadyLevel@4{}%
-  \renewcommand*\SpellsReadyLevel@5{}%
-  \renewcommand*\SpellsReadyLevel@6{}%
-  \renewcommand*\SpellsReadyLevel@7{}%
-  \renewcommand*\SpellsReadyLevel@8{}%
-  \renewcommand*\SpellsReadyLevel@9{}%
-  \renewcommand*\SpellLastLevel{}%
-}
-
 \makeatother
 
+% --- spell table for player-input ---
+\newcommand{\SpellsReady}{}
 
+% \AddSpellReady{lvl}{name}{cast}{range}{marker(CRM)}{effect}
+\makeatletter
+\newcommand\AddSpellReady[6]{%
+  \SpellRowStep
+  \SpellMarkerStore{#5}% remember 5. column
+  \MakeSpellFlagColors{\the\SpellRow}% create colors for the row
+  \g@addto@macro\SpellsReady{%
+    \\[5.85pt]%
+    \entryfont\textcolor{text-color}{#1} &
+    \begin{fitbox}{100pt}{10pt}{\normalsize}\entryfont\textcolor{text-color}{#2}\end{fitbox} &
+    \entryfont\textcolor{text-color}{#3} &
+    \entryfont\textcolor{text-color}{#4} &
+    \entryfont\textcolor{text-color}{#5} &
+    \begin{fitbox}{80pt}{10pt}{\normalsize}\entryfont\textcolor{text-color}{#6}\end{fitbox}%
+  }%
+}
+
+%% note: counter has to go up, but no markers
+\newcommand\AddSpellNote[1]{%
+  \SpellRowStep
+  \expandafter\gdef\csname SpellMarker@\the\SpellRow\endcsname{}% empty marker
+  \MakeSpellFlagColors{\the\SpellRow}% set C/R/M of the row to yellow
+  \g@addto@macro\SpellsReady{%
+    \\[5.85pt]%
+    \multicolumn{4}{c}{%
+      \begin{fitbox}{195pt}{10pt}{\footnotesize}\centering
+        \entryfont\textcolor{text-color}{#1}%
+      \end{fitbox}}&&%
+  }%
+}
+
+
+\makeatother
 
 
 %old, replaced (maybe include it into each other, to get cross-compatibility)
@@ -298,7 +270,7 @@
 \newcommand{\Equipment}[1]{\renewcommand{\EquipmentValue}{#1}}
 
 %old, replaced (maybe include it into each other, to get cross-compatibility)
-\newcommand{\FeaturesTraits}[1]{\renewcommand{\FeaturesTraitsValue}{#1}}
+%\newcommand{\FeaturesTraits}[1]{\renewcommand{\FeaturesTraitsValue}{#1}}
 
 
 
@@ -1038,6 +1010,14 @@
     {}%
 }
 
+% HEROIC INSPIRATION
+
+\newrgbcolor{heroic}{1 1 1}
+\newcommand{\HeroicInspiration}[1]{%
+  \ifnum#1=1\relax%
+    \colorlet{heroic}{black}%
+   \fi 
+  }
 % SPELL PREPARED COLOR CHANGES
 
 % LEVEL 1

@@ -1,0 +1,63 @@
+\newcommand{\profradius}[0]{2.6 pt} %2.5pt for a TINY white border, used for positioning
+\newcommand{\xleft}[0]{28.8}
+\newcommand{\xleftdex}[0]{28.675}
+\newcommand{\xright}[0]{170.35}
+
+
+\psframe[fillstyle=none,fillcolor=blue!20,linewidth=3pt,linecolor=red](310,775)(400,800)
+
+
+\rput(50,600){\SpellMarkerGet{1}}% sollte "CM" o.ä. zeigen
+\rput(50,580){\SpellMarkerGet{3}}% sollte "CM" o.ä. zeigen
+
+
+%%%%% ROW 1
+\pscustom[	linestyle = solid,
+			linewidth = 1pt,
+			fillstyle = solid,
+			fillcolor = C1]
+{
+\newpath
+\moveto(324.2025,779.64760414)
+\curveto(324.2025,781.00360411)(320.0385001,785.167604)(318.68250014,785.167604)
+\curveto(320.0385001,785.167604)(324.2025,789.3316039)(324.2025,790.68760386)
+\curveto(324.2025,789.3316039)(328.36783323,785.167604)(329.72249986,785.167604)
+\curveto(328.36783323,785.167604)(324.2025,781.00360411)(324.2025,779.64760414)
+}
+% Raute 2  — BBox: (347.8563, 779.6476)–(358.8963, 790.6876)
+% Zentrum ~ (353.38, 785.17)
+\pscustom[	linestyle = solid,
+			linewidth = 1pt,
+			fillstyle = solid,
+			fillcolor = R1]
+{
+\newpath
+\moveto(353.3763,779.64760414)
+\curveto(353.3763,781.00360411)(349.2123001,785.167604)(347.85630014,785.167604)
+\curveto(349.2123001,785.167604)(353.3763,789.3316039)(353.3763,790.68760386)
+\curveto(353.3763,789.3316039)(357.54163323,785.167604)(358.89629986,785.167604)
+\curveto(357.54163323,785.167604)(353.3763,781.00360411)(353.3763,779.64760414)
+}
+% Raute 3  — BBox: (376.7736, 779.6476)–(387.8136, 790.6876)
+% Zentrum ~ (382.29, 785.17)
+\pscustom[	linestyle = solid,
+			linewidth = 1pt,
+			fillstyle = solid,
+			fillcolor = M1]
+{
+\newpath
+\moveto(382.2936,779.64760414)
+\curveto(382.2936,781.00360411)(378.1296001,785.167604)(376.77360014,785.167604)
+\curveto(378.1296001,785.167604)(382.2936,789.3316039)(382.2936,790.68760386)
+\curveto(382.2936,789.3316039)(386.45893323,785.167604)(387.81359986,785.167604)
+\curveto(386.45893323,785.167604)(382.2936,781.00360411)(382.2936,779.64760414)
+}
+
+
+\pscircle[linestyle=none, fillstyle=solid, fillcolor=C1](100,600){3pt} % C
+\pscircle[linestyle=none, fillstyle=solid, fillcolor=R1](110,600){3pt} % R
+\pscircle[linestyle=none, fillstyle=solid, fillcolor=M1](120,600){3pt} % M
+
+\pscircle[linestyle=none, fillstyle=solid, fillcolor=C3](100,580){3pt} % C
+\pscircle[linestyle=none, fillstyle=solid, fillcolor=R3](110,580){3pt} % R
+\pscircle[linestyle=none, fillstyle=solid, fillcolor=M3](120,580){3pt} % M
