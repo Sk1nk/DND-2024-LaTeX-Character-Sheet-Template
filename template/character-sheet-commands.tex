@@ -171,17 +171,35 @@
 \makeatletter
 \newcommand\AddWeapon[4]{%
 	\g@addto@macro\WeaponsHeld{%
-	\\[7.5pt]%
-	\entryfont \textcolor{text-color}{#1} &
-	\entryfont \textcolor{text-color}{#2} &
-	\entryfont \textcolor{text-color}{#3} &
-	\entryfont \textcolor{text-color}{#4}
+	\\[5.85pt]%
+	\begin{fitbox}{94pt}{10pt}{\normalsize}\entryfont \textcolor{text-color}{#1}\end{fitbox}&
+	\begin{fitbox}{35pt}{10pt}{\normalsize}\entryfont \textcolor{text-color}{#2}\end{fitbox} &
+	\begin{fitbox}{66pt}{10pt}{\normalsize}\entryfont \textcolor{text-color}{#3}\end{fitbox}&
+	\begin{fitbox}{110pt}{10pt}{\normalsize}\entryfont \textcolor{text-color}{#4}\end{fitbox}
 	}
 }
 \makeatother
 
 %% Spell GENERATOR COMMAND 
 %% Thinking about 6 inputs <Level><Name><Cast Time><Range><CRM><Notes>
+% --- Set all Colors to blue ---
+\newcommand{\InitSpellColors}{%
+  \multido{\n=1+1}{30}{%
+  \begingroup
+      % Name to text
+      \edef\thisC{C\n}%
+      \edef\thisR{R\n}%
+      \edef\thisM{M\n}%
+      % define every color as an RGB color (atm "white")
+      \expandafter\newrgbcolor\expandafter{\thisC}{1 1 1}%
+      \expandafter\newrgbcolor\expandafter{\thisR}{1 1 1}%
+      \expandafter\newrgbcolor\expandafter{\thisM}{1 1 1}%
+    \endgroup
+	}%
+}
+\InitSpellColors %call command once before creating the spells
+
+
 % --- Row-Counter, Marker-Store, Getter ---
 \newcount\SpellRow
 \SpellRow=0
@@ -199,9 +217,9 @@
 \newcommand{\MakeSpellFlagColors}[1]{%
   \edef\Marker{\romannumeral-`0\SpellMarkerGet{#1}}%
   \edef\nC{C#1}\edef\nR{R#1}\edef\nM{M#1}%
-  \expandafter\colorlet\expandafter{\nC}{yellow}%
-  \expandafter\colorlet\expandafter{\nR}{yellow}%
-  \expandafter\colorlet\expandafter{\nM}{yellow}%
+  \expandafter\colorlet\expandafter{\nC}{white}%
+  \expandafter\colorlet\expandafter{\nR}{white}%
+  \expandafter\colorlet\expandafter{\nM}{white}%
   \IfSubStr{\Marker}{C}{\expandafter\colorlet\expandafter{\nC}{black}}{}%
   \IfSubStr{\Marker}{R}{\expandafter\colorlet\expandafter{\nR}{black}}{}%
   \IfSubStr{\Marker}{M}{\expandafter\colorlet\expandafter{\nM}{black}}{}%
@@ -223,7 +241,7 @@
     \begin{fitbox}{100pt}{10pt}{\normalsize}\entryfont\textcolor{text-color}{#2}\end{fitbox} &
     \entryfont\textcolor{text-color}{#3} &
     \entryfont\textcolor{text-color}{#4} &
-    \entryfont\textcolor{text-color}{#5} &
+    \entryfont\textcolor{text-color}{} & %not used anymore, #5 for the letters :)
     \begin{fitbox}{80pt}{10pt}{\normalsize}\entryfont\textcolor{text-color}{#6}\end{fitbox}%
   }%
 }

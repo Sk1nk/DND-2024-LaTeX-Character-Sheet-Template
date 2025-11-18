@@ -21,8 +21,6 @@
 %\rput[l](63.17786559,683.19371612){\footnotesize \entryfont \textcolor{text-color}{\CantripSlotHValue}}
 
 
-
-
 \rput[lt](25,814){%
   \parbox[t]{356pt}{%
     \begin{tabular}{@{}Lp{100pt}C R p{57pt}p{90pt}@{}}
@@ -32,6 +30,66 @@
   }%
 }
 
+%\rput(324.2025,785.167604){\SpellDiamond{C1}}
+%\rput(353.3763,785.167604){\SpellDiamond{R1}}
+%\rput(382.2936,785.167604){\SpellDiamond{M1}}
+
+
+
+%\rput(200,825) {\SpellDiamond{C10}}
+
+\newcommand{\AllDiamonds}{%
+  % Konstanten: X, Start-Y, Schritt-Y
+  \def\Xc{324.2025}
+  \def\Xr{353.3763}
+  \def\Xm{382.2936}
+  \def\Ystart{811.087604}
+  \def\Ystep{25.92}
+  %
+  \multido{\n=1+1}{30}{%
+    % PostScript-Koordinate: (! X Ystart n*Ystep sub)
+	\rput(! \Xc\space \Ystart\space \n\space \Ystep\space mul sub){%
+		\SpellDiamond{C\n}% 
+    }%
+     \rput(! \Xr\space \Ystart\space \n\space \Ystep\space mul sub){%
+		\SpellDiamond{R\n}%
+	}
+	\rput(! \Xm\space \Ystart\space \n\space \Ystep\space mul sub){%
+		\SpellDiamond{M\n}% 
+	}
+  }%
+}
+
+
+\AllDiamonds
+
+%%%%% 1. Diamant
+%% Form hinter dem Diamanten
+%\pscustom[linestyle=none,fillstyle=solid,fillcolor=green, linecolor = blue]
+%{
+%	\newpath
+%	\moveto(313.9573,785.28093414)
+%	\curveto(316.10396661,785.5236008)(320.41463317,785.90626746)(322.56129978,786.04493412)
+%	\curveto(325.42396638,786.42626744)(328.30529964,786.45426744)(331.16396624,785.28093414)
+%	\lineto(331.16396624,785.06226748)
+%	\curveto(330.80529958,784.89560082)(330.44796625,784.80493415)(330.0892996,784.67293416)
+%	\lineto(329.01329962,784.4102675)
+%	\curveto(326.86263301,783.86626751)(324.7119664,784.04760084)(322.56129978,784.2982675)
+%	\curveto(320.41863317,784.43693416)(316.09863328,784.82093415)(313.9573,785.06226748)
+%	\closepath
+%}
+%
+%%Diamantenform
+%\pscustom[linewidth=1.3333333,linecolor=red]
+%{
+%	\newpath
+%	\moveto(324.2025,779.64760414)
+%	\curveto(324.2025,781.00360411)(320.0385001,785.167604)(318.68250014,785.167604)
+%	\curveto(320.0385001,785.167604)(324.2025,789.3316039)(324.2025,790.68760386)
+%	\curveto(324.2025,789.3316039)(328.36783323,785.167604)(329.72249986,785.167604)
+%	\curveto(328.36783323,785.167604)(324.2025,781.00360411)(324.2025,779.64760414)
+%}
+%%%%%
 
 
 %% LEVEL 1
