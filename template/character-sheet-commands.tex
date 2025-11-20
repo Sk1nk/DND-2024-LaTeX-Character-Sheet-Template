@@ -266,9 +266,12 @@
 
 %old, replaced (maybe include it into each other, to get cross-compatibility)
 \newcommand{\FeaturesTraitsValue}{}
-%not sure
 \newcommand{\OtherProficienciesLanguagesValue}{}
+%not sure
 \newcommand{\AttacksAdditionalValue}{}
+
+\newcommand{\LanguagesValue}{}
+\newcommand{\Languages}[1]{\renewcommand{\LanguagesValue}{#1}}
 
 % CLASS FEATURES
 \newcommand{\ClassFeaturesValue}{}
@@ -291,7 +294,26 @@
 %\newcommand{\FeaturesTraits}[1]{\renewcommand{\FeaturesTraitsValue}{#1}}
 
 
+% APPEARANCE
+\newcommand{\AgeValue}{}
+\newcommand{\HeightValue}{}
+\newcommand{\WeightValue}{}
+\newcommand{\EyesValue}{}
+\newcommand{\SkinValue}{}
+\newcommand{\HairValue}{}
+\newcommand{\CharacterAppearanceValue}{}
+\newcommand{\AppearanceValue}{\CharacterAppearanceValue \par Age:~\AgeValue,\par Height:~\HeightValue,\par  Eyes:~\EyesValue,\par Skin:~\SkinValue,\par Hair:~\HairValue 
+}
 
+
+\newcommand{\Age}[1]{\renewcommand{\AgeValue}{#1}}
+\newcommand{\Height}[1]{\renewcommand{\HeightValue}{#1}}
+\newcommand{\Weight}[1]{\renewcommand{\WeightValue}{#1}}
+\newcommand{\Eyes}[1]{\renewcommand{\EyesValue}{#1}}
+\newcommand{\Skin}[1]{\renewcommand{\SkinValue}{#1}}
+\newcommand{\Hair}[1]{\renewcommand{\HairValue}{#1}}
+\newcommand{\Appearance}[1]{\renewcommand{\AppearanceValue}{#1}}
+\newcommand{\CharacterAppearance}[1]{\renewcommand{\CharacterAppearanceValue}{#1}}
 
 % PERSONALITY
 \newcommand{\PersonalityTraitsValue}{}
@@ -304,44 +326,41 @@
 \newcommand{\Bonds}[1]{\renewcommand{\BondsValue}{#1}}
 \newcommand{\Flaws}[1]{\renewcommand{\FlawsValue}{#1}}
 
-% APPEARANCE
-\newcommand{\AgeValue}{}
-\newcommand{\HeightValue}{}
-\newcommand{\WeightValue}{}
-\newcommand{\EyesValue}{}
-\newcommand{\SkinValue}{}
-\newcommand{\HairValue}{}
-
-\newcommand{\Age}[1]{\renewcommand{\AgeValue}{#1}}
-\newcommand{\Height}[1]{\renewcommand{\HeightValue}{#1}}
-\newcommand{\Weight}[1]{\renewcommand{\WeightValue}{#1}}
-\newcommand{\Eyes}[1]{\renewcommand{\EyesValue}{#1}}
-\newcommand{\Skin}[1]{\renewcommand{\SkinValue}{#1}}
-\newcommand{\Hair}[1]{\renewcommand{\HairValue}{#1}}
 
 % background
-\newcommand{\CharacterAppearanceValue}{}
+
 \newcommand{\AdditionalFeaturesAndTraitsValue}{}
 \newcommand{\CharacterbackgroundValue}{}
 \newcommand{\TreasureValue}{}
 \newcommand{\AlliesAndOrganizationsValue}{}
 \newcommand{\OrganizationNameValue}{}
+\newcommand{\BackstoryValue}{\PersonalityTraitsValue \par \IdealsValue \par \BondsValue \par \FlawsValue \par \vspace{1em}
+\AdditionalFeaturesAndTraitsValue \par 
+\CharacterbackgroundValue \par 
+\TreasureValue \par 
+\AlliesAndOrganizationsValue \par 
+\OrganizationNameValue \par 
 
-\newcommand{\CharacterAppearance}[1]{\renewcommand{\CharacterAppearanceValue}{#1}}
+}
+
+
 \newcommand{\AdditionalFeaturesAndTraits}[1]{\renewcommand{\AdditionalFeaturesAndTraitsValue}{#1}}
 \newcommand{\Characterbackground}[1]{\renewcommand{\CharacterbackgroundValue}{#1}}
 \newcommand{\Treasure}[1]{\renewcommand{\TreasureValue}{#1}}
 \newcommand{\AlliesAndOrganizations}[1]{\renewcommand{\AlliesAndOrganizationsValue}{#1}}
 \newcommand{\OrganizationName}[1]{\renewcommand{\OrganizationNameValue}{#1}}
+\newcommand{\Backstory}[1]{\renewcommand{\BackstoryValue}{#1}}
 
 % SPELL MODIFIERS
 \newcommand{\SpellcastingClassValue}{}
 \newcommand{\SpellcastingAbilityValue}{}
+\newcommand{\SpellcastingModifierValue}{}
 \newcommand{\SpellSaveDCValue}{}
 \newcommand{\SpellAttackBonusValue}{}
 
 \newcommand{\SpellcastingClass}[1]{\renewcommand{\SpellcastingClassValue}{#1}}
 \newcommand{\SpellcastingAbility}[1]{\renewcommand{\SpellcastingAbilityValue}{#1}}
+\newcommand{\SpellcastingModifier}[1]{\renewcommand{\SpellcastingModifierValue}{#1}}
 \newcommand{\SpellSaveDC}[1]{\renewcommand{\SpellSaveDCValue}{#1}}
 \newcommand{\SpellAttackBonus}[1]{\renewcommand{\SpellAttackBonusValue}{#1}}
 

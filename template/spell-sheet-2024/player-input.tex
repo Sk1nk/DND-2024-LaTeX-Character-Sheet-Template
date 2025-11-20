@@ -3,9 +3,22 @@
 % SPELLCASTING CLASS
 %\rput[cc](202.78439493,953.086909505){\LARGE \entryfont \textcolor{text-color}{\SpellcastingClassValue}}
 
-\rput[cc](90,1000){\LARGE \entryfont \textcolor{text-color}{\SpellcastingAbilityValue}}
-\rput[cc](40,955){\LARGE \entryfont \textcolor{text-color}{\SpellAttackBonusValue}}
-\rput[cc](40,915){\LARGE \entryfont \textcolor{text-color}{\SpellSaveDCValue}}
+\rput[lc](100,996){%
+\begin{fitbox}{100pt}{10pt}{\LARGE}
+ \entryfont \textcolor{text-color}{\SpellcastingAbilityValue}
+\end{fitbox}
+}
+\rput[cc](45,954){%
+\Large \entryfont \textcolor{text-color}{\SpellcastingModifierValue}
+}
+\rput[cc](45,917){%
+\Large \entryfont \textcolor{text-color}{\SpellSaveDCValue}
+}
+\rput[cc](45,880){%
+\Large \entryfont \textcolor{text-color}{\SpellAttackBonusValue}
+}
+
+
 
 % TOTAL SPELL SLOTS
 
@@ -30,38 +43,85 @@
   }%
 }
 
-%\rput(324.2025,785.167604){\SpellDiamond{C1}}
-%\rput(353.3763,785.167604){\SpellDiamond{R1}}
-%\rput(382.2936,785.167604){\SpellDiamond{M1}}
+\AllDiamonds
 
-
-
-%\rput(200,825) {\SpellDiamond{C10}}
-
-\newcommand{\AllDiamonds}{%
-  % Konstanten: X, Start-Y, Schritt-Y
-  \def\Xc{324.2025}
-  \def\Xr{353.3763}
-  \def\Xm{382.2936}
-  \def\Ystart{811.087604}
-  \def\Ystep{25.92}
-  %
-  \multido{\n=1+1}{30}{%
-    % PostScript-Koordinate: (! X Ystart n*Ystep sub)
-	\rput(! \Xc\space \Ystart\space \n\space \Ystep\space mul sub){%
-		\SpellDiamond{C\n}% 
-    }%
-     \rput(! \Xr\space \Ystart\space \n\space \Ystep\space mul sub){%
-		\SpellDiamond{R\n}%
-	}
-	\rput(! \Xm\space \Ystart\space \n\space \Ystep\space mul sub){%
-		\SpellDiamond{M\n}% 
-	}
-  }%
+% --- Appearance --- 
+\rput[lt](545,988){% 
+%\fbox{
+\begin{fitbox}{164pt}{65pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\AppearanceValue}
+\end{fitbox}
+%}
 }
 
+% --- Backstory ---
+\rput[lt](545,848){% 
+%\fbox{
+\begin{fitbox}{164pt}{130pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\BackstoryValue}
+\end{fitbox}
+%}
+}
 
-\AllDiamonds
+% --- Alignment --- 
+\rput[lt](545,643){% 
+%\fbox{
+\begin{fitbox}{164pt}{14pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\AlignmentValue}
+\end{fitbox}
+%}
+}
+
+% --- Languages ---
+\rput[lt](545,576){% 
+%\fbox{
+\begin{fitbox}{164pt}{30pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\LanguagesValue}
+\end{fitbox}
+%}
+}
+
+% --- Equipment --- 
+\rput[lt](545,484){% 
+%\fbox{ %y 3 pt nach unten für netteren Platz
+\begin{fitbox}{164pt}{165pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\EquipmentValue}
+\end{fitbox}
+%}
+}
+
+% --- Money ---
+%CP
+\rput[cc](573,80){% 
+\begin{fitbox}{15pt}{12pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\CPValue}
+\end{fitbox}
+}
+%SP
+\rput[cc](621,80){% 
+\begin{fitbox}{15pt}{12pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\SPValue}
+\end{fitbox}
+
+}
+%EP
+\rput[cc](668,80){% 
+\begin{fitbox}{15pt}{12pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\EPValue}
+\end{fitbox}
+}
+%GP
+\rput[cc](715,80){% 
+\begin{fitbox}{15pt}{12pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\GPValue}
+\end{fitbox}
+}
+%PP
+\rput[cc](762,80){% 
+\begin{fitbox}{15pt}{12pt}{\normalsize}%
+  \entryfont \textcolor{text-color}{\PPValue}
+\end{fitbox}
+}
 
 %%%%% 1. Diamant
 %% Form hinter dem Diamanten

@@ -11,6 +11,7 @@
 \newdimen\fitUpper
 \newdimen\fitLower
 \newdimen\fitMeasureDim
+\newdimen\fitBaseline 
 \newif\iffitMore
 \newbox\fitTmp
 \newbox\fitColA
@@ -102,6 +103,7 @@
   }%
 }
 
+% used ChatGPT to rebuild the old environment
 \NewDocumentEnvironment{fitbox}{mmm +b}
 {%
   % local line-breaking policy: allow hyphenation and enable microtype
@@ -119,23 +121,25 @@
   % --- build step: one column ---
   \def\fitBuild{%
     \setbox\fitSingle=\hbox{%
-	\fontsize{\fitFontDim}{1.2\fitFontDim}\selectfont
-	\fitStuff
-	}%
-	\fitLineWidth=\wd\fitSingle
+      \fontsize{\fitFontDim}{1.2\fitFontDim}\selectfont
+      \fitStuff
+    }%
+    \fitLineWidth=\wd\fitSingle
     \setbox\fitTmp=\vbox{%
       \hsize=#1\relax
       \parskip=0pt
       \parindent=0pt
       \fontsize{\fitFontDim}{1.2\fitFontDim}\selectfont
       \fitStuff\par
-      
     }%
     \setbox0=\box\fitTmp
-      \fitMeasureDim=\ht0
-	\ifdim\fitLineWidth>#1
-	\fitMeasureDim=\dimexpr #2+1pt\relax % erzwingt Shrink-Runde
-	\fi  
+    \fitMeasureDim=\ht0
+    \fitBaseline=1.2\fitFontDim
+    \ifdim\ht0<1.5\fitBaseline
+      \ifdim\fitLineWidth>#1
+        \fitMeasureDim=\dimexpr #2+1pt\relax
+      \fi
+    \fi
   }%
   % --- coarse shrink until the height fits ---
   \def\fitShrink{%

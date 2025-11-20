@@ -23,7 +23,7 @@
 
 %Top Middle
 \Level{2}
-\XP{Milestone}
+\XP{32000}
 \ArmorClass{14}
 
 %Top Right
@@ -110,20 +110,32 @@
 \Proficiency{2}
 \Perception{11}
 
-%TODO: Move to page 2
-\Alignment{Chaotic good}
-
-
-
 \Initiative{4}
 \Speed{30}
 
 
-\CP{}
-\SP{}
-\GP{15}
-\EP{}
-\PP{}
+\CP{22}
+\SP{23}
+\GP{24}
+\EP{13}
+\PP{25}
+
+% --- Weapons --- 
+
+\AddWeapon{Rapier}{+5}{1d8+3/p}{Nice}
+\AddWeapon{Rapier}{+5}{1d8+3/p}{}
+\AddWeapon{Dagger}{+5}{1d4+3/p}{}
+\AddWeapon{Dagger}{+5}{1d4+3/p}{}
+\AddWeapon{Dagger}{+5}{1d4+3/p}{Dagger, Dagger, Dagger}
+\AddWeapon{Hand Crossbow}{+5}{1d6+3/p}{}
+
+\AttacksAdditional{\textbf{Armor}: Leather Armor \\ }
+
+%old, replaced
+%\OtherProficienciesLanguages{\textbf{Languages:} Common, Draconic, Elvish. \\
+%\textbf{Weapons}: Simple Weapons, Longsword, Hand Crossbow, Rapier, Shortsword. \\
+%\textbf{Armor}: Light Armor. \\
+%\textbf{Other}: Dice Set, Flute, Hand Drum, Viol, Thieves' Tools. \\}
 
 \SetLightArmorProficiency{1}
 \SetMediumArmorProficiency{0}
@@ -135,19 +147,7 @@
 
 \ToolsProficiencies{Playing Cards, Flute}
 
-\AddWeapon{Rapier}{+5}{1d8+3/p}{Nice}
-\AddWeapon{Rapier}{+5}{1d8+3/p}{}
-\AddWeapon{Dagger}{+5}{1d4+3/p}{}
-\AddWeapon{Dagger}{+5}{1d4+3/p}{}
-\AddWeapon{Dagger}{+5}{1d4+3/p}{Dagger, Dagger, Dagger}
-\AddWeapon{Hand Crossbow}{+5}{1d6+3/p}{}
-
-\AttacksAdditional{\textbf{Armor}: Leather Armor \\ }
-
-\OtherProficienciesLanguages{\textbf{Languages:} Common, Draconic, Elvish. \\
-\textbf{Weapons}: Simple Weapons, Longsword, Hand Crossbow, Rapier, Shortsword. \\
-\textbf{Armor}: Light Armor. \\
-\textbf{Other}: Dice Set, Flute, Hand Drum, Viol, Thieves' Tools. \\}
+\Languages{Common, Draconic, Elvish}
 
 \Equipment{
 Backpack, Bedroll, Mess Kit, Tinderbox, 1 Torches,
@@ -156,17 +156,6 @@ Backpack, Bedroll, Mess Kit, Tinderbox, 1 Torches,
 \textbf{Weight:} 74.02 lb \\
 \textbf{Capacity:} 165 lb
 }
-
-\PersonalityTraits{I am always calm, no matter what the situation. I never raise my voice or let my emotions control me.
-
-I would rather make a new friend than a new enemy.
-}
-
-\Ideals{Redemption. There's a spark of good in everyone. (Good)}
-
-\Bonds{Something important (a dragon's egg) was taken from me, and I aim to steal it back.}
-
-\Flaws{If there's a plan, I'll forget it. If I don't forget it, I'll ignore it.}
 
 \ClassFeatures{%
 Jack of All Trades \par 
@@ -197,8 +186,12 @@ Song of Rest (1d6)
 }
 
 
-% Appearance
-
+% --- Appearance ---
+% not sure how to handle pictures in this small box
+\CharacterAppearance{
+%\includegraphics[height=70pt]{characters/images/aaliyah.jpg}
+Aaliyah is a female Half-Elf Bard.
+}
 \Age{45}
 \Height{5'1''}
 \Weight{110~lbs}
@@ -206,13 +199,21 @@ Song of Rest (1d6)
 \Skin{Tan}
 \Hair{Red}
 
-% background
+%I make all of them into one command, seperated by \par ... one could use \Appearance instead:
+%\Appearance{\lipsum[2]}
 
-\CharacterAppearance{
-\includegraphics[width=5.75cm]{characters/images/aaliyah.jpg}
-Aaliyah is a female Half-Elf Bard.
+% --- background & personality ---
+\PersonalityTraits{I am always calm, no matter what the situation. I never raise my voice or let my emotions control me.
 
+I would rather make a new friend than a new enemy.
 }
+
+\Ideals{Redemption. There's a spark of good in everyone. (Good)}
+
+\Bonds{Something important (a dragon's egg) was taken from me, and I aim to steal it back.}
+
+\Flaws{If there's a plan, I'll forget it. If I don't forget it, I'll ignore it.}
+
 \AdditionalFeaturesAndTraits{
 }
 
@@ -225,13 +226,17 @@ Aaliyah is a female Half-Elf Bard.
 \AlliesAndOrganizations{
 }
 
-\OrganizationName{
+\OrganizationName{small blue girls
 }
+%I make all of them into one command, seperated by \par ... one could use \Backstory instead:
+%\Backstory{\lipsum[2]}
 
+\Alignment{Chaotic good}
 
 %Magic
-\SpellcastingClass{Bard 2}
+\SpellcastingClass{Bard 2} %not used at the moment
 \SpellcastingAbility{CHA}
+\SpellcastingModifier{+4}
 \SpellSaveDC{12}
 \SpellAttackBonus{+4}
 
@@ -275,7 +280,7 @@ Aaliyah is a female Half-Elf Bard.
 \onecolumn
 
 \newpage
-%\rendercharactersheettf
+\rendercharactersheettf
 
 
 \newpage

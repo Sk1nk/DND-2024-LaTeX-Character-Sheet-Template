@@ -34,3 +34,25 @@
     \closepath
   }%
 }
+
+\newcommand{\AllDiamonds}{%
+  % Konstanten: X, Start-Y, Schritt-Y
+  \def\Xc{324.2025}
+  \def\Xr{353.3763}
+  \def\Xm{382.2936}
+  \def\Ystart{811.087604}
+  \def\Ystep{25.92}
+  %
+  \multido{\n=1+1}{30}{%
+    % PostScript-Koordinate: (! X Ystart n*Ystep sub)
+	\rput(! \Xc\space \Ystart\space \n\space \Ystep\space mul sub){%
+		\SpellDiamond{C\n}% 
+    }%
+     \rput(! \Xr\space \Ystart\space \n\space \Ystep\space mul sub){%
+		\SpellDiamond{R\n}%
+	}
+	\rput(! \Xm\space \Ystart\space \n\space \Ystep\space mul sub){%
+		\SpellDiamond{M\n}% 
+	}
+  }%
+}
