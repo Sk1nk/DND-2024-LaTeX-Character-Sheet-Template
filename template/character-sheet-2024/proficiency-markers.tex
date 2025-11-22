@@ -450,6 +450,59 @@
   \curveto(81.07106675,238.47426996)(72.44306696,238.47426996)(71.039067,237.07027)
 }
 
+
+%--- Macro for Spell Diamonds and Diamonds ... maybe move to a top level file, it is created twice (spell markers and proficiency markers)
+\newrgbcolor{spike}{0.69803923 0.69411767 0.69411767}
+\newcommand{\SpellDiamond}[1]{%
+  % gray Spike
+\pscustom[	linestyle=none,
+			fillstyle=solid,
+			fillcolor=spike,
+			linecolor=green,
+			linewidth=.1pt]{%
+    \newpath
+    \moveto(-10.2452,0.11333)
+    \curveto(-8.09853,0.356)(-3.78787,0.73867)(-1.64120,0.87733)
+    \curveto(1.22147,1.25867)(4.10280,1.28667)(6.96147,0.11333)
+    \lineto(6.96147,-0.10533)
+    \curveto(6.60280,-0.272)(6.24547,-0.36267)(5.88680,-0.49467)
+    \lineto(4.81080,-0.75733)
+    \curveto(2.66013,-1.30133)(0.50947,-1.12000)(-1.64120,-0.86933)
+    \curveto(-3.78387,-0.73067)(-8.10387,-0.34667)(-10.2452,-0.10533)
+    \closepath
+  }%Diamond
+  \pscustom[linestyle=solid,
+  			fillstyle=solid,
+  			fillcolor=#1,
+  			linewidth=1pt,
+  			linecolor=black]{%
+    \newpath
+    \moveto(0,-5.52000)
+    \curveto(0,-4.16400)(-4.16400,0)(-5.52000,0)
+    \curveto(-4.16400,0)(0,4.16400)(0,5.52000)
+    \curveto(0,4.16400)(4.16533,0)(5.52000,0)
+    \curveto(4.16533,0)(0,-4.16400)(0,-5.52000)
+    \closepath
+  }%
+}
+\newcommand{\SlotDiamond}[1]{%
+%Diamond
+  \pscustom[linestyle=solid,
+  			fillstyle=solid,
+  			fillcolor=#1,
+  			linewidth=1pt,
+  			linecolor=black]{%
+    \newpath
+    \moveto(0,-5.52000)
+    \curveto(0,-4.16400)(-4.16400,0)(-5.52000,0)
+    \curveto(-4.16400,0)(0,4.16400)(0,5.52000)
+    \curveto(0,4.16400)(4.16533,0)(5.52000,0)
+    \curveto(4.16533,0)(0,-4.16400)(0,-5.52000)
+    \closepath
+  }%
+}
+
+
 %%%%% 
 %Light Armor Marker
 \pscustom[	linestyle=solid,
@@ -517,5 +570,14 @@
   \curveto(452.49613,935.33692976)(456.66146323,931.17292986)(458.01612986,931.17292986)
   \curveto(456.66146323,931.17292986)(452.49613,927.00892997)(452.49613,925.65293)
 }
+
+%--- Death Saves --- 
+\rput(727.9,972){\SlotDiamond{SDia1}}
+\rput(742.3,972){\SlotDiamond{SDia2}}
+\rput(757.3,972){\SlotDiamond{SDia3}}
+
+\rput(727.9,943.1){\SlotDiamond{FDia1}}
+\rput(742.3,943.1){\SlotDiamond{FDia2}}
+\rput(757.3,943.1){\SlotDiamond{FDia3}}
 
 

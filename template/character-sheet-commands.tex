@@ -26,6 +26,27 @@
 \newcommand{\Level}[1]{\renewcommand{\LevelValue}{#1}}
 \newcommand{\XP}[1]{\renewcommand{\XPValue}{#1}}
 
+
+%all white
+	\newrgbcolor{SDia1}{1 1 1}%
+	\newrgbcolor{SDia2}{1 1 1}%
+	\newrgbcolor{SDia3}{1 1 1}%
+
+
+	\newrgbcolor{FDia1}{1 1 1}%
+	\newrgbcolor{FDia2}{1 1 1}%
+	\newrgbcolor{FDia3}{1 1 1}%
+
+\newcommand{\DeathSaves}[2]{%
+	\ifnum#1>0 \newrgbcolor{SDia1}{0.235 0.361 0.216}\fi
+	\ifnum#1>1 \newrgbcolor{SDia2}{0.235 0.361 0.216}\fi
+	\ifnum#1>2 \newrgbcolor{SDia3}{0.235 0.361 0.216}\fi
+%black diamonds
+	\ifnum#2>0 \newrgbcolor{FDia1}{0.502 0.235 0.204}\fi
+	\ifnum#2>1 \newrgbcolor{FDia2}{0.502 0.235 0.204}\fi
+	\ifnum#2>2 \newrgbcolor{FDia3}{0.502 0.235 0.204}\fi
+}
+
 % PROFICIENCY ETC
 \newcommand{\InspirationValue}{}
 \newcommand{\ProficiencyValue}{}
