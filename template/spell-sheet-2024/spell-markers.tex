@@ -1,5 +1,6 @@
 %Mein ChatGPT-Rahmen
-%\psframe[fillstyle=none,fillcolor=blue!20,linewidth=3pt,linecolor=red](310,775)(400,800)
+%\psframe[fillstyle=none,fillcolor=blue!20,linewidth=3pt,linecolor=red](550,150)(600,250)
+%\psframe[fillstyle=none,fillcolor=blue!20,linewidth=3pt,linecolor=green](250,850)(550,950)
 
 \newrgbcolor{spike}{0.69803923 0.69411767 0.69411767}
 \newcommand{\SpellDiamond}[1]{%
@@ -20,6 +21,23 @@
     \curveto(-3.78387,-0.73067)(-8.10387,-0.34667)(-10.2452,-0.10533)
     \closepath
   }%Diamond
+  \pscustom[linestyle=solid,
+  			fillstyle=solid,
+  			fillcolor=#1,
+  			linewidth=1pt,
+  			linecolor=black]{%
+    \newpath
+    \moveto(0,-5.52000)
+    \curveto(0,-4.16400)(-4.16400,0)(-5.52000,0)
+    \curveto(-4.16400,0)(0,4.16400)(0,5.52000)
+    \curveto(0,4.16400)(4.16533,0)(5.52000,0)
+    \curveto(4.16533,0)(0,-4.16400)(0,-5.52000)
+    \closepath
+  }%
+}
+
+\newcommand{\SlotDiamond}[1]{%
+%Diamond
   \pscustom[linestyle=solid,
   			fillstyle=solid,
   			fillcolor=#1,
@@ -56,3 +74,137 @@
 	}
   }%
 }
+
+% --- Magic Item Atunement ---
+\rput(564,228){\SpellDiamond{MIA1}}
+\rput(564,201){\SpellDiamond{MIA2}}
+\rput(564,174){\SpellDiamond{MIA3}}
+
+
+% --- for cross compatibility just uncomment --- 
+%\FirstLevelSpellSlots{\FirstLevelSpellSlotsTotalValue}{\FirstLevelSpellSlotsExpendedValue}
+%
+%\SecondLevelSpellSlots{\SecondLevelSpellSlotsTotalValue}{\SecondLevelSpellSlotsExpendedValue}
+%
+%\ThirdLevelSpellSlots{\ThirdLevelSpellSlotsTotalValue}{\ThirdLevelSpellSlotsExpendedValue}
+%
+%\FourthLevelSpellSlots{\FourthLevelSpellSlotsTotalValue}{\FourthLevelSpellSlotsExpendedValue}
+%
+%\FifthLevelSpellSlots{\FifthLevelSpellSlotsTotalValue}{\FifthLevelSpellSlotsExpendedValue}
+%
+%\SixthLevelSpellSlots{\SixthLevelSpellSlotsTotalValue}{\SixthLevelSpellSlotsExpendedValue}
+%
+%\SeventhLevelSpellSlots{\SeventhLevelSpellSlotsTotalValue}{\SeventhLevelSpellSlotsExpendedValue}
+%
+%\EighthLevelSpellSlots{\EighthLevelSpellSlotsTotalValue}{\EighthLevelSpellSlotsExpendedValue}
+%
+%\NinthLevelSpellSlots{\NinthLevelSpellSlotsTotalValue}{\NinthLevelSpellSlotsExpendedValue}
+
+% --- Spell Slots ---
+\rput(270.5,911.5){\SlotDiamond{1Dia1}}
+\rput(283.1,911.5){\SlotDiamond{1Dia2}}
+\rput(295.7,911.5){\SlotDiamond{1Dia3}}
+\rput(308.4,911.5){\SlotDiamond{1Dia4}}
+
+\rput(483.8184,907.22173411){\SlotDiamond{2Dia1}}
+\rput(460,800){\SlotDiamond{2Dia2}}
+\rput(470,800){\SlotDiamond{2Dia3}}
+
+\rput(450,800){\SlotDiamond{3Dia1}}
+\rput(460,800){\SlotDiamond{3Dia2}}
+\rput(470,800){\SlotDiamond{3Dia3}}
+
+\rput(450,800){\SlotDiamond{4Dia1}}
+\rput(460,800){\SlotDiamond{4Dia2}}
+\rput(470,800){\SlotDiamond{4Dia3}}
+
+\rput(450,800){\SlotDiamond{5Dia1}}
+\rput(460,800){\SlotDiamond{5Dia2}}
+\rput(470,800){\SlotDiamond{5Dia3}}
+
+\rput(450,800){\SlotDiamond{6Dia1}}
+\rput(460,800){\SlotDiamond{6Dia2}}
+
+\rput(450,800){\SlotDiamond{7Dia1}}
+\rput(460,800){\SlotDiamond{7Dia2}}
+
+\rput(450,800){\SlotDiamond{8Dia1}}
+
+\rput(450,800){\SlotDiamond{9Dia1}}
+
+
+
+
+
+
+
+
+%sinnloser Code in der Main.tex (Kreis ohne Funktion) ... Zeile 6674ff.
+% { \newrgbcolor{curcolor}{0.13725491 0.13725491 0.13725491}
+%    \pscustom[linewidth=1.75999999,linecolor=curcolor, fillstyle = solid, fillcolor = red]{%
+%      \newpath
+%      \moveto(551.35065756,240.21794625)
+%      \curveto(551.35065756,243.12047319)(553.70065697,245.4704726)(556.6031839,245.4704726)
+%      \curveto(559.50571084,245.4704726)(561.85571025,243.12047319)(561.85571025,240.21794625)
+%      \curveto(561.85571025,237.31541932)(559.50571084,234.96541991)(556.6031839,234.96541991)
+%      \curveto(553.70065697,234.96541991)(551.35065756,237.31541932)(551.35065756,240.21794625)
+%      \closepath
+%      \moveto(551.35065756,240.21794625)
+%    }%
+%  }
+%2. Diamant ... liegt aber verschoben ... Füllung
+%  
+%   { \newrgbcolor{curcolor}{1 1 1}
+%    \pscustom[linestyle=none,fillstyle=solid,fillcolor=green]{%
+%      \newpath
+%      \moveto(564.23400028,201.47696274)
+%      \curveto(562.6587693,200.11394671)(561.28623202,198.58800229)(560.11638845,196.89912948)
+%      \curveto(558.93316971,198.58800229)(557.54950367,200.11394671)(555.96539034,201.47696274)
+%      \curveto(557.54950367,202.83997878)(558.93316971,204.36592319)(560.11638845,206.054796)
+%      \curveto(561.28623202,204.36592319)(562.6587693,202.83997878)(564.23400028,201.47696274)
+%      \closepath
+%      \moveto(564.23400028,201.47696274)
+%    }%
+%  }
+% %2. Diamant ... liegt aber verschoben ... Rahmen
+%  
+%  { \newrgbcolor{curcolor}{0.39607844 0.24705882 0.16078432}
+%    \pscustom[linewidth=0.87999998,linecolor=curcolor, fillstyle = solid, fillcolor = blue]{%
+%      \newpath
+%      \moveto(564.23400028,201.47696274)
+%      \curveto(562.6587693,200.11394671)(561.28623202,198.58800229)(560.11638845,196.89912948)
+%      \curveto(558.93316971,198.58800229)(557.54950367,200.11394671)(555.96539034,201.47696274)
+%      \curveto(557.54950367,202.83997878)(558.93316971,204.36592319)(560.11638845,206.054796)
+%      \curveto(561.28623202,204.36592319)(562.6587693,202.83997878)(564.23400028,201.47696274)
+%      \closepath
+%      \moveto(564.23400028,201.47696274)
+%    }%
+%  }
+
+%3. Diamant ... liegt verschoben ... Rahmen
+%{ \newrgbcolor{curcolor}{1 1 1}
+%    \pscustom[linestyle=none,fillstyle=solid,fillcolor=yellow]{%
+%      \newpath
+%      \moveto(564.23400028,174.74296192)
+%      \curveto(562.6587693,173.37994588)(561.28623202,171.85400147)(560.11638845,170.16512866)
+%      \curveto(558.93316971,171.85400147)(557.54950367,173.37994588)(555.96539034,174.74296192)
+%      \curveto(557.54950367,176.10597795)(558.93316971,177.63192237)(560.11638845,179.32079518)
+%      \curveto(561.28623202,177.63192237)(562.6587693,176.10597795)(564.23400028,174.74296192)
+%      \closepath
+%      \moveto(564.23400028,174.74296192)
+%    }%
+%  }
+%%3. Diamant ... liegt verschoben ... Füllung  
+%  { \newrgbcolor{curcolor}{0.39607844 0.24705882 0.16078432}
+%    \pscustom[linewidth=0.87999998,linecolor=curcolor, fillstyle = solid, fillcolor = orange]{%
+%      \newpath
+%      \moveto(564.23400028,174.74296192)
+%      \curveto(562.6587693,173.37994588)(561.28623202,171.85400147)(560.11638845,170.16512866)
+%      \curveto(558.93316971,171.85400147)(557.54950367,173.37994588)(555.96539034,174.74296192)
+%      \curveto(557.54950367,176.10597795)(558.93316971,177.63192237)(560.11638845,179.32079518)
+%      \curveto(561.28623202,177.63192237)(562.6587693,176.10597795)(564.23400028,174.74296192)
+%      \closepath
+%      \moveto(564.23400028,174.74296192)
+%    }%
+%  }
+ 

@@ -180,7 +180,57 @@
 }
 \makeatother
 
-%% Spell GENERATOR COMMAND 
+% MAGIC ITEM COMMAND
+\newcommand{\MagicItemsAttuned}{}
+
+% Farben initial: alle weiß
+\newrgbcolor{MIA1}{1 1 1}
+\newrgbcolor{MIA2}{1 1 1}
+\newrgbcolor{MIA3}{1 1 1}
+
+% Zähler für Magic-Item-Zeilen
+\newcount\MIARow
+\MIARow=0
+
+% Optional: Reset-Makro, z.B. vor einer neuen Liste
+\newcommand{\MagicItemsReset}{%
+  \MIARow=0\relax
+  \colorlet{MIA1}{white}%
+  \colorlet{MIA2}{white}%
+  \colorlet{MIA3}{white}%
+}
+
+\makeatletter
+\newcommand\AddMagicItem[2]{%
+  % Zeilennummer hochzählen
+  \advance\MIARow by 1\relax
+
+  % Wenn in dieser Zeile in Spalte 1 eine 1 steht,
+  % setze die passende MIA-Farbe auf schwarz:
+  \ifnum\MIARow=1
+    \ifnum#1=1\relax \colorlet{MIA1}{black}\fi
+  \fi
+  \ifnum\MIARow=2
+    \ifnum#1=1\relax \colorlet{MIA2}{black}\fi
+  \fi
+  \ifnum\MIARow=3
+    \ifnum#1=1\relax \colorlet{MIA3}{black}\fi
+  \fi
+
+  % ursprüngliches Verhalten beibehalten: Zeile anhängen
+  \g@addto@macro\MagicItemsAttuned{%
+    \\[6.4pt]%
+    &
+    \begin{fitbox}{145pt}{10pt}{\normalsize}\entryfont
+      \textcolor{text-color}{#2}%
+    \end{fitbox}%
+  }%
+}
+\makeatother
+
+
+
+%% SPELL GENERATOR COMMAND 
 %% Thinking about 6 inputs <Level><Name><Cast Time><Range><CRM><Notes>
 % --- Set all Colors to blue ---
 \newcommand{\InitSpellColors}{%
@@ -364,6 +414,8 @@
 \newcommand{\SpellSaveDC}[1]{\renewcommand{\SpellSaveDCValue}{#1}}
 \newcommand{\SpellAttackBonus}[1]{\renewcommand{\SpellAttackBonusValue}{#1}}
 
+
+
 % TOTAL SPELL SLOTS
 \newcommand{\FirstLevelSpellSlotsTotalValue}{}
 \newcommand{\SecondLevelSpellSlotsTotalValue}{}
@@ -405,6 +457,134 @@
 \newcommand{\SeventhLevelSpellSlotsExpended}[1]{\renewcommand{\SeventhLevelSpellSlotsExpendedValue}{#1}}
 \newcommand{\EighthLevelSpellSlotsExpended}[1]{\renewcommand{\EighthLevelSpellSlotsExpendedValue}{#1}}
 \newcommand{\NinthLevelSpellSlotsExpended}[1]{\renewcommand{\NinthLevelSpellSlotsExpendedValue}{#1}}
+
+
+% --- Spell Slots ---
+% Level 1
+\newcommand{\FirstLevelSpellSlotsValue}{}
+%all white
+	\newrgbcolor{1Dia1}{1 1 1}%
+	\newrgbcolor{1Dia2}{1 1 1}%
+	\newrgbcolor{1Dia3}{1 1 1}%
+	\newrgbcolor{1Dia4}{1 1 1}%
+
+\newcommand{\FirstLevelSpellSlots}[2]{%
+	\renewcommand{\FirstLevelSpellSlotsValue}{#1}%
+%black diamonds
+	\ifnum#2>0 \newrgbcolor{1Dia1}{0 0 0}\fi
+	\ifnum#2>1 \newrgbcolor{1Dia2}{0 0 0}\fi
+	\ifnum#2>2 \newrgbcolor{1Dia3}{0 0 0}\fi
+	\ifnum#2>3 \newrgbcolor{1Dia4}{0 0 0}\fi
+}
+
+
+% Level 2
+\newcommand{\SecondLevelSpellSlotsValue}{}
+% all white
+\newrgbcolor{2Dia1}{1 1 1}%
+\newrgbcolor{2Dia2}{1 1 1}%
+\newrgbcolor{2Dia3}{1 1 1}%
+
+\newcommand{\SecondLevelSpellSlots}[2]{%
+  \renewcommand{\SecondLevelSpellSlotsValue}{#1}% Gesamtwert speichern
+  % black diamonds
+  \ifnum#2>0 \newrgbcolor{2Dia1}{0 0 0}\fi
+  \ifnum#2>1 \newrgbcolor{2Dia2}{0 0 0}\fi
+  \ifnum#2>2 \newrgbcolor{2Dia3}{0 0 0}\fi
+}
+
+% Level 3
+\newcommand{\ThirdLevelSpellSlotsValue}{}
+% all white
+\newrgbcolor{3Dia1}{1 1 1}%
+\newrgbcolor{3Dia2}{1 1 1}%
+\newrgbcolor{3Dia3}{1 1 1}%
+
+\newcommand{\ThirdLevelSpellSlots}[2]{%
+  \renewcommand{\ThirdLevelSpellSlotsValue}{#1}%
+  % black diamonds
+  \ifnum#2>0 \newrgbcolor{3Dia1}{0 0 0}\fi
+  \ifnum#2>1 \newrgbcolor{3Dia2}{0 0 0}\fi
+  \ifnum#2>2 \newrgbcolor{3Dia3}{0 0 0}\fi
+}
+
+% Level 4
+\newcommand{\ForthLevelSpellSlotsValue}{} % (Schreibweise aus deiner Vorlage beibehalten)
+% all white
+\newrgbcolor{4Dia1}{1 1 1}%
+\newrgbcolor{4Dia2}{1 1 1}%
+\newrgbcolor{4Dia3}{1 1 1}%
+
+\newcommand{\ForthLevelSpellSlots}[2]{%
+  \renewcommand{\ForthLevelSpellSlotsValue}{#1}%
+  % black diamonds
+  \ifnum#2>0 \newrgbcolor{4Dia1}{0 0 0}\fi
+  \ifnum#2>1 \newrgbcolor{4Dia2}{0 0 0}\fi
+  \ifnum#2>2 \newrgbcolor{4Dia3}{0 0 0}\fi
+}
+
+% Level 5
+\newcommand{\FifthLevelSpellSlotsValue}{}
+% all white
+\newrgbcolor{5Dia1}{1 1 1}%
+\newrgbcolor{5Dia2}{1 1 1}%
+\newrgbcolor{5Dia3}{1 1 1}%
+
+\newcommand{\FifthLevelSpellSlots}[2]{%
+  \renewcommand{\FifthLevelSpellSlotsValue}{#1}%
+  % black diamonds
+  \ifnum#2>0 \newrgbcolor{5Dia1}{0 0 0}\fi
+  \ifnum#2>1 \newrgbcolor{5Dia2}{0 0 0}\fi
+  \ifnum#2>2 \newrgbcolor{5Dia3}{0 0 0}\fi
+}
+
+% Level 6
+\newcommand{\SixthLevelSpellSlotsValue}{}
+% all white
+\newrgbcolor{6Dia1}{1 1 1}%
+\newrgbcolor{6Dia2}{1 1 1}%
+
+\newcommand{\SixthLevelSpellSlots}[2]{%
+  \renewcommand{\SixthLevelSpellSlotsValue}{#1}%
+  % black diamonds
+  \ifnum#2>0 \newrgbcolor{6Dia1}{0 0 0}\fi
+  \ifnum#2>1 \newrgbcolor{6Dia2}{0 0 0}\fi
+}
+
+% Level 7
+\newcommand{\SeventhLevelSpellSlotsValue}{}
+% all white
+\newrgbcolor{7Dia1}{1 1 1}%
+\newrgbcolor{7Dia2}{1 1 1}%
+
+\newcommand{\SeventhLevelSpellSlots}[2]{%
+  \renewcommand{\SeventhLevelSpellSlotsValue}{#1}%
+  % black diamonds
+  \ifnum#2>0 \newrgbcolor{7Dia1}{0 0 0}\fi
+  \ifnum#2>1 \newrgbcolor{7Dia2}{0 0 0}\fi
+}
+
+% Level 8
+\newcommand{\EighthLevelSpellSlotsValue}{}
+% all white
+\newrgbcolor{8Dia1}{1 1 1}%
+
+\newcommand{\EighthLevelSpellSlots}[2]{%
+  \renewcommand{\EighthLevelSpellSlotsValue}{#1}%
+  % black diamond
+  \ifnum#2>0 \newrgbcolor{8Dia1}{0 0 0}\fi
+}
+
+% Level 9
+\newcommand{\NinthLevelSpellSlotsValue}{}
+% all white
+\newrgbcolor{9Dia1}{1 1 1}%
+
+\newcommand{\NinthLevelSpellSlots}[2]{%
+  \renewcommand{\NinthLevelSpellSlotsValue}{#1}%
+  % black diamond
+  \ifnum#2>0 \newrgbcolor{9Dia1}{0 0 0}\fi
+}
 
 % CANTRIPS
 \newcommand{\CantripSlotAValue}{}

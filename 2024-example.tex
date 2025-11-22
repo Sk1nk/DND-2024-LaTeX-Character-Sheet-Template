@@ -4,7 +4,7 @@
 
 \usepackage{graphicx}
 \usepackage{geometry}
-\usepackage{pstricks}
+%\usepackage{pstricks} %ist in dndtemplate
 \usepackage[justified]{dnd}
 
 \usepackage{dndtemplate}
@@ -156,6 +156,10 @@ Backpack, Bedroll, Mess Kit, Tinderbox, 1 Torches,
 \textbf{Weight:} 74.02 lb \\
 \textbf{Capacity:} 165 lb
 }
+%\AddMagicItem<attuned><name of the item>
+%\AddMagicItem{1}{Ring of Protection}
+%\AddMagicItem{1}{Ring of more Protection}
+%\AddMagicItem{1}{Ring of even more Protection}
 
 \ClassFeatures{%
 Jack of All Trades \par 
@@ -236,11 +240,44 @@ I would rather make a new friend than a new enemy.
 %Magic
 \SpellcastingClass{Bard 2} %not used at the moment
 \SpellcastingAbility{CHA}
-\SpellcastingModifier{+4}
+\SpellcastingModifier{+4}	%Spellcasting Ability Modifier + Proficiency
 \SpellSaveDC{12}
-\SpellAttackBonus{+4}
+\SpellAttackBonus{+2}	%Spellcasting Ability Modifier (no proficiency this time)
 
-\FirstLevelSpellSlotsTotal{3}
+%\FirstLevelSpellSlotsTotal{3}
+%\FirstLevelSpellSlotsExpended{4}
+
+%I combined them both into one command
+%\_____thLevelSpellSlots<total><expended>
+\FirstLevelSpellSlots{4}{3}
+\SecondLevelSpellSlots{3}{3}
+\ThirdLevelSpellSlots{3}{2}
+\ForthLevelSpellSlots{3}{1}
+\FifthLevelSpellSlots{3}{2}
+\SixthLevelSpellSlots{2}{2}
+\SeventhLevelSpellSlots{2}{2}
+\EighthLevelSpellSlots{1}{1}
+\NinthLevelSpellSlots{1}{0}
+
+% --- for cross compatibility just uncomment --- 
+%\FirstLevelSpellSlots{\FirstLevelSpellSlotsTotalValue}{\FirstLevelSpellSlotsExpendedValue}
+%
+%\SecondLevelSpellSlots{\SecondLevelSpellSlotsTotalValue}{\SecondLevelSpellSlotsExpendedValue}
+%
+%\ThirdLevelSpellSlots{\ThirdLevelSpellSlotsTotalValue}{\ThirdLevelSpellSlotsExpendedValue}
+%
+%\FourthLevelSpellSlots{\FourthLevelSpellSlotsTotalValue}{\FourthLevelSpellSlotsExpendedValue}
+%
+%\FifthLevelSpellSlots{\FifthLevelSpellSlotsTotalValue}{\FifthLevelSpellSlotsExpendedValue}
+%
+%\SixthLevelSpellSlots{\SixthLevelSpellSlotsTotalValue}{\SixthLevelSpellSlotsExpendedValue}
+%
+%\SeventhLevelSpellSlots{\SeventhLevelSpellSlotsTotalValue}{\SeventhLevelSpellSlotsExpendedValue}
+%
+%\EighthLevelSpellSlots{\EighthLevelSpellSlotsTotalValue}{\EighthLevelSpellSlotsExpendedValue}
+%
+%\NinthLevelSpellSlots{\NinthLevelSpellSlotsTotalValue}{\NinthLevelSpellSlotsExpendedValue}
+
 
 %\AddSpellReady<Level><Name><Casting Time><Range><CRM><Notes>
 \AddSpellReady{0}{Light}{MA}{Touch}{RM}{Bright Light 20ft, Dim 20tf}
