@@ -47,6 +47,40 @@
 	\ifnum#2>2 \newrgbcolor{FDia3}{0.502 0.235 0.204}\fi
 }
 
+\newcommand{\TransparentImages}[1]{%
+	\ifthenelse{\equal{#1}{1}}{%
+	\newbox\chara
+        \savebox\chara{\includegraphics[scale=0.2]{template/images/a_tt.png}}
+
+        \newbox\charb
+        \savebox\charb{\includegraphics[scale=0.175]{template/images/b_tt.png}}
+
+        \newbox\charc
+        \savebox\charc{\includegraphics[scale=0.21]{template/images/c_tt.png}}
+
+        \newbox\chard
+        \savebox\chard{\includegraphics[scale=0.19]{template/images/d4_tt.png}}
+
+        \newbox\chare
+        \savebox\chare{\includegraphics[scale=0.14]{template/images/e_tt.png}}
+	}{%
+	\newbox\chara
+        \savebox\chara{\includegraphics[scale=0.2]{template/images/a_t.png}}
+
+        \newbox\charb
+        \savebox\charb{\includegraphics[scale=0.175]{template/images/b_t.png}}
+
+        \newbox\charc
+        \savebox\charc{\includegraphics[scale=0.21]{template/images/c_t.png}}
+
+        \newbox\chard
+        \savebox\chard{\includegraphics[scale=0.19]{template/images/d4_t.png}}
+
+        \newbox\chare
+        \savebox\chare{\includegraphics[scale=0.14]{template/images/e_t.png}}
+	}
+}
+
 % PROFICIENCY ETC
 \newcommand{\InspirationValue}{}
 \newcommand{\ProficiencyValue}{}
