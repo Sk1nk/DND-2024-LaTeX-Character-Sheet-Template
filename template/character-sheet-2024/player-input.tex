@@ -6,29 +6,28 @@
 
 %%%%% TOP LEFT BLOCK
 % CHARACTER NAME
-\rput[l](25,999){\begin{fitbox}{7.6cm}{18pt}{\LARGE} \entryfont \textcolor{text-color}{\CharacterNameValue} \end{fitbox}}
+\rput[l](30,999){\begin{fitbox}{7.6cm}{18pt}{\LARGE} \entryfont \textcolor{text-color}{\CharacterNameValue} \end{fitbox}}
 
 % HEADER INFORMATION
 %Background
-\rput[l](25,969){\begin{fitbox}{3.9cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\BackgroundValue} \end{fitbox}}
+\rput[l](30,969){\begin{fitbox}{3.9cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\BackgroundValue} \end{fitbox}}
 %Species
-\rput[l](25,940){\begin{fitbox}{3.9cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\SpeciesValue} \end{fitbox}}
+\rput[l](30,940){\begin{fitbox}{3.9cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\SpeciesValue} \end{fitbox}}
 %Class
-\rput[l](185,969){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\ClassValue} \end{fitbox}}
+\rput[l](195,969){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\ClassValue} \end{fitbox}}
 %Subclass
-\rput[l](185,940){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\SubclassValue} \end{fitbox}}
+\rput[l](195,940){\begin{fitbox}{3.3cm}{15pt}{\Large} \entryfont \textcolor{text-color}{\SubclassValue} \end{fitbox}}
 
 %%%%% TOP MIDDLE
-\rput[cc](362,974){\begin{fitbox}{1cm}{15pt}{\Large} \centering \entryfont \textcolor{text-color}{\LevelValue} \end{fitbox}}
+\rput[cb](366,977){
+\Large \centering \entryfont \textcolor{text-color}{\LevelValue}}
 %XP
-\rput[cc](363,945){%
-
-\begin{fitbox}{1cm}{15pt}{\Large} \centering \entryfont \textcolor{text-color}{\XPValue} \end{fitbox}}
+\rput[cb](366,947){%
+\begin{fitbox}{1.3cm}{12pt}{\Large} \centering \entryfont \textcolor{text-color}{\XPValue} \end{fitbox}}
 
 %%%%% TOP RIGHT
 % BATTLE STATS
-\rput[cc](450,970){\LARGE \entryfont \textcolor{text-color}{\ArmorClassValue}}
-%TODO: Shield-Marker
+\rput[cc](452,968){\LARGE \entryfont \textcolor{text-color}{\ArmorClassValue}}
 \rput[cc](530,945){\LARGE \entryfont \textcolor{text-color}{\CurrentHitPointsValue}}
 \rput[cc](600,974){\Large \entryfont \textcolor{text-color}{\TemporaryHitPointsValue}}
 \rput[cc](600,945){\Large \entryfont \textcolor{text-color}{\MaxHitPointsValue}}
@@ -37,19 +36,16 @@
 \rput[cc](680,945){\Large \entryfont \textcolor{text-color}{\MaxHitDiceValue}}
 
 %%%%% CENTER
-\rput[cc](340,840){\begin{fitbox}{40pt}{24pt}{\LARGE}\centering  \entryfont \textcolor{text-color}{\addplus{\InitiativeValue}}\end{fitbox}}
-\rput[cc](465,840){\begin{fitbox}{40pt}{24pt}{\LARGE} \centering \entryfont \textcolor{text-color}{\SpeedValue} \end{fitbox}}
-\rput[cc](590,840){\begin{fitbox}{40pt}{24pt}{\LARGE} \centering \entryfont \textcolor{text-color}{\HeightValue} \end{fitbox}}
-\rput[cc](725,840){\begin{fitbox}{40pt}{24pt}{\LARGE} \centering \entryfont \textcolor{text-color}{\PerceptionValue}\end{fitbox}}
+\rput[cc](350,846){\Large \entryfont \textcolor{text-color}{\addplus{\InitiativeValue}}}
+\rput[cc](475,846){\Large \entryfont \textcolor{text-color}{\SpeedValue}}
+\rput[cc](602,846){\Large \entryfont \textcolor{text-color}{\HeightValue}}
+\rput[cc](729,846){\Large \entryfont \textcolor{text-color}{\PerceptionValue}}
 
 
 
 
 
 % PROFICIENCY ETC
-%\rput[cc](143.42533022,869.816111585){\Large \entryfont \textcolor{text-color}{\InspirationValue}}
-%not sure what this is for ... like bardic inspiraction or heroic inspiration ... 
-
 %TODO: Heroic inspiration needs a marker (Found it, need to finish it)
 %decided to skip it, that's something you earn mid game, not something you start with
 
@@ -57,20 +53,20 @@
 
 
 % MODIFIERS
-\rput[cc](60,734){\LARGE \entryfont \textcolor{text-color}{\addplus{\StrengthModifierValue}}}
-\rput[cc](60,578){\LARGE \entryfont \textcolor{text-color}{\addplus{\DexterityModifierValue}}}
-\rput[cc](60,383){\LARGE \entryfont \textcolor{text-color}{\addplus{\ConstitutionModifierValue}}}
+\rput[cc](59,734){\LARGE \entryfont \textcolor{text-color}{\addplus{\StrengthModifierValue}}}
+\rput[cc](59,578){\LARGE \entryfont \textcolor{text-color}{\addplus{\DexterityModifierValue}}}
+\rput[cc](59,383){\LARGE \entryfont \textcolor{text-color}{\addplus{\ConstitutionModifierValue}}}
 \rput[cc](200,838){\LARGE \entryfont \textcolor{text-color}{\addplus{\IntelligenceModifierValue}}}
 \rput[cc](200,606){\LARGE \entryfont \textcolor{text-color}{\addplus{\WisdomModifierValue}}}
 \rput[cc](200,374){\LARGE \entryfont \textcolor{text-color}{\addplus{\CharismaModifierValue}}}
 
 % ABILITY SCORES
 \rput[cc](99,727){\entryfont \textcolor{text-color}{\StrengthScoreValue}}
-\rput[cc](99,571){\entryfont \textcolor{text-color}{\DexterityScoreValue}}
+\rput[cc](99,570){\entryfont \textcolor{text-color}{\DexterityScoreValue}}
 \rput[cc](99,375){\entryfont \textcolor{text-color}{\ConstitutionScoreValue}}
-\rput[cc](239,831){\entryfont \textcolor{text-color}{\IntelligenceScoreValue}}
-\rput[cc](239,599){\entryfont \textcolor{text-color}{\WisdomScoreValue}}
-\rput[cc](239,367){\entryfont \textcolor{text-color}{\CharismaScoreValue}}
+\rput[cc](239,830){\entryfont \textcolor{text-color}{\IntelligenceScoreValue}}
+\rput[cc](239,598.5){\entryfont \textcolor{text-color}{\WisdomScoreValue}}
+\rput[cc](239,366.5){\entryfont \textcolor{text-color}{\CharismaScoreValue}}
 
 % SAVING THROWS (position of the circles +20 in x and -1 in y)
 \rput[cc](48.8,677.05){\footnotesize \entryfont \textcolor{text-color}{\addplus{\StrengthSavingThrowModifierValue}}}
@@ -132,9 +128,9 @@
 %}
 }
 
-\rput[lt](545,245){% 
+\rput[lt](550.5,245){% 
 %\fbox{
-\begin{fitbox}{175pt}{165pt}{\normalsize}%
+\begin{fitbox}{170pt}{165pt}{\normalsize}%
   \entryfont \textcolor{text-color}{\FeatsValue}
 \end{fitbox}
 %}

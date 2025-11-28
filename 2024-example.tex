@@ -25,8 +25,8 @@
 
 
 %Top Middle
-\Level{2}
-\XP{32000}
+\Level{20}
+\XP{Milestone}
 \ArmorClass{14}
 
 %Top Right
@@ -41,6 +41,18 @@
 %new command \DeathSaves<Successes><Failures>
 \DeathSaves{1}{0}
 
+
+%2. row
+\Initiative{3}
+\Speed{30ft}
+\Height{5'1''}
+
+\Inspiration{1} % no idea what this is for :) 
+\HeroicInspiration{0} %bottom left
+\Proficiency{2}
+\Perception{12}
+
+
 % Ability scores
 \StrengthScore{11}
 \DexterityScore{16}
@@ -50,12 +62,12 @@
 \CharismaScore{15}
 
 % Ability modifiers
-\StrengthModifier{0}
-\DexterityModifier{3}
-\ConstitutionModifier{1}
-\IntelligenceModifier{1}
-\WisdomModifier{0}
-\CharismaModifier{2}
+\StrengthModifier{0}%0
+\DexterityModifier{3}%3
+\ConstitutionModifier{1}%1
+\IntelligenceModifier{1}%1
+\WisdomModifier{0}%0
+\CharismaModifier{2}%2
 
 % Saving Throws
 \StrengthSavingThrowModifier{1}
@@ -111,13 +123,6 @@
 \SetStealthProficiency{1}
 \SetSurvivalProficiency{0.5}
 
-\Inspiration{1}
-\HeroicInspiration{0}
-\Proficiency{2}
-\Perception{11}
-
-\Initiative{4}
-\Speed{30}
 
 
 \CP{22}
@@ -192,7 +197,7 @@ Song of Rest (1d6)
 \SpecialTraits{Fey Ancestry\\
 }
 
-\Feats{Jack of All Trades\\
+\Feats{Song of Rest (1d6)\\
 }
 
 
@@ -203,7 +208,6 @@ Song of Rest (1d6)
 Aaliyah is a female Half-Elf Bard.
 }
 \Age{45}
-\Height{5'1''}
 \Weight{110~lbs}
 \Eyes{Grey}
 \Skin{Tan}
@@ -245,7 +249,7 @@ I would rather make a new friend than a new enemy.
 
 %Magic
 \SpellcastingClass{Bard 2} %not used at the moment
-\SpellcastingAbility{CHA}
+\SpellcastingAbility{Charisma}
 \SpellcastingModifier{+4}	%Spellcasting Ability Modifier + Proficiency
 \SpellSaveDC{12}
 \SpellAttackBonus{+2}	%Spellcasting Ability Modifier (no proficiency this time)
@@ -298,25 +302,6 @@ I would rather make a new friend than a new enemy.
 %\AddSpellReady{0}{Vicious Mockery}{MA}{Touch}{}{}
 
 %at the moment you need to sort them manually
-
-
-
-\FirstLevelSpellSlotA{Detect Magic}
-\FirstLevelSpellSlotAPrepared{True}
-\FirstLevelSpellSlotB{Dissonant Whispers}
-\FirstLevelSpellSlotBPrepared{True}
-\FirstLevelSpellSlotC{Faerie Fire}
-\FirstLevelSpellSlotCPrepared{True}
-\FirstLevelSpellSlotD{Sleep}
-\FirstLevelSpellSlotDPrepared{True}
-\FirstLevelSpellSlotE{Tashas Hideous Laughter}
-\FirstLevelSpellSlotEPrepared{True}
-\CantripSlotA{Mage Hand}
-\CantripSlotB{Vicious Mockery}
-
-\newcommand{\spellsheetchoice}{\renderspellsheet}
-
-
 
 \begin{document}
 \newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
