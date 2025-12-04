@@ -1,0 +1,255 @@
+\DocumentMetadata{}
+
+\documentclass[letterpaper,openany,oneside,twocolumn]{book}
+\usepackage{bookmark}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage[justified]{dnd}
+
+\usepackage{dndtemplate}
+
+\setlength\oddsidemargin{\dimexpr(\paperwidth-\textwidth)/2 - 1in\relax}
+\setlength\evensidemargin{\oddsidemargin}
+
+% This switch is for changing the pictures to transparent or white background
+\TransparentImages{0}
+
+% Top Left Block
+\CharacterName{}
+% adds only main class and total level to prevent overflow
+\Background{Wayfarer}
+\Class{Sorcerer}
+\Species{Dragonborn (Gold)} 
+%\Species{Half-Elf} 
+\Subclass{}
+
+
+%Top Middle
+\Level{2}
+\XP{}
+\ArmorClass{10}
+
+%Top Right
+\MaxHitPoints{12}
+\CurrentHitPoints{12}
+\TemporaryHitPoints{}
+
+
+\MaxHitDice{2d6}
+\SpentHitDice{}
+
+%new command \DeathSaves<Successes><Failures>
+\DeathSaves{0}{0}
+
+
+%2. row
+\Initiative{2}
+\Speed{30ft}
+\Height{M}
+
+
+\HeroicInspiration{0} %bottom left
+\Proficiency{2}
+\Perception{11}
+
+
+% Ability scores
+\StrengthScore{10}
+\DexterityScore{14}
+\ConstitutionScore{14}
+\IntelligenceScore{8}
+\WisdomScore{13}
+\CharismaScore{16}
+
+% Ability modifiers
+\StrengthModifier{0}%0
+\DexterityModifier{3}%3
+\ConstitutionModifier{1}%1
+\IntelligenceModifier{1}%1
+\WisdomModifier{0}%0
+\CharismaModifier{2}%2
+
+% Saving Throws
+\StrengthSavingThrowModifier{0}
+\DexteritySavingThrowModifier{2}
+\ConstitutionSavingThrowModifier{2}
+\IntelligenceSavingThrowModifier{-1}
+\WisdomSavingThrowModifier{1}
+\CharismaSavingThrowModifier{3}
+
+\AcrobaticsSkillModifier{2}
+\AnimalHandlingSkillModifier{1}
+\ArcanaSkillModifier{1}
+\AthleticsSkillModifier{0}
+\DeceptionSkillModifier{3}
+\HistorySkillModifier{-1}
+\InsightSkillModifier{3}
+\IntimidationSkillModifier{5}
+\InvestigationSkillModifier{-1}
+\MedicineSkillModifier{1}
+\NatureSkillModifier{-1}
+\PerceptionSkillModifier{1}
+\PerformanceSkillModifier{3}
+\PersuasionSkillModifier{3}
+\ReligionSkillModifier{-1}
+\SleightOfHandSkillModifier{2}
+\StealthSkillModifier{4}
+\SurvivalSkillModifier{1}
+
+% Proficiencies
+\SetStrengthProficiency{0}
+\SetDexterityProficiency{0}
+\SetConstitutionProficiency{1}
+\SetIntelligenceProficiency{0}
+\SetWisdomProficiency{0}
+\SetCharismaProficiency{1}
+
+\SetAcrobaticsProficiency{0}
+\SetAnimalHandlingProficiency{0}
+\SetArcanaProficiency{0}
+\SetAthleticsProficiency{0}
+\SetDeceptionProficiency{0}
+\SetHistoryProficiency{0}
+\SetInsightProficiency{1}
+\SetIntimidationProficiency{1}
+\SetInvestigationProficiency{0}
+\SetMedicineProficiency{0}
+\SetNatureProficiency{0}
+\SetPerceptionProficiency{0}
+\SetPerformanceProficiency{0}
+\SetPersuasionProficiency{0}
+\SetReligionProficiency{0}
+\SetSleightOfHandProficiency{0}
+\SetStealthProficiency{1}
+\SetSurvivalProficiency{0}
+
+
+
+\CP{}
+\SP{}
+\GP{44}
+\EP{}
+\PP{}
+
+% --- Weapons --- 
+
+\AddWeapon{Shocking Grasp}{+5}{1d8 Lightning}{Can't make Opportunity Attacks}
+\AddWeapon{Sorcerous Burst}{+5}{1d8*}{120ft, if roll 8, add another d8}
+\AddWeapon{Dagger}{+2}{1d4+2/p}{Finesse, Light, Thrown (20/60)}
+\AddWeapon{Unarmed Strike}{+2}{1 b}{Damage, Grapple or Shove}
+
+
+\SetLightArmorProficiency{0}
+\SetMediumArmorProficiency{0}
+\SetHeavyArmorProficiency{0}
+\SetShieldProficiency{0}
+\SetShieldEquipped{0}
+
+\WeaponsProficiencies{Simple}
+
+\ToolsProficiencies{Thieve's Tools}
+
+\Languages{Common, Draconic, Goblin}
+
+\Equipment{
+Spear \par 
+Daggers (4) \par 
+Arcane Focus (crystal) \par 
+Dungeoneer's Pack \par 
+Three-Dragon Ante set \par 
+Bedroll \par 
+Pouches (2) \par 
+Traveler's Clothes
+}
+%\AddMagicItem<attuned><name of the item>
+
+
+\ClassFeatures{%
+\textbf{Innate Sorcery:} As a Bonus Action, for one Minute the DC of your Sorcerer spells increase by 1 and you have Advantage on attack rolls of Sorcerer spells you cast. Twice/Long Rest
+
+\vspace{1em}
+\textbf{Unarmed Strike:} \par 
+\textit{Grapple:} DC10 STR or DEX save or be Grappled\par 
+\textit{Shove:} DC 10 STR or DEX save or be pushed 5ft and Prone
+
+\vspace{1em}
+\textbf{Sorcerous Burst:} Choose Acid, Cold, Fire, Lightning, Poison, Psychic or Thunder damage
+
+\vspace{2em}
+\textbf{Font of Magic:} 2 Sorcery Points
+\par 
+\textit{Convert Spell Slots to Sorcery Points:} expand a spell slot, gain number of Sorcery Points equal to slot's level (no action required)
+\par 
+\textit{Create Spell Slot:} As Bonus Action, spend 2 Sorcery Points for one Level 1 Spell Slot (vanishes on the end of a Long Rest)
+
+\vspace{1em}
+\textbf{Metamagic:} alter spells to suit your needs \par 
+\textit{Seeking Spell:} 1 Sorcery Point, reroll the d20, you must use the new roll \par 
+\textit{Distant Spell:} 1 Sorcery Point, double the Spells range or make a Touch Spell  30ft range
+}
+
+
+\SpecialTraits{\textbf{Breath Weapon:} Attack action to create 15-foot Cone or 30-foot Line of Fire. 1d10 damage, DC12 DEX save for half. Twice/Long Rest
+
+\vspace{1em}
+\textbf{Damage Resistance:} Resistance to Fire damage.
+
+\vspace{1em}
+\textbf{Darkvision:} 60ft
+}
+
+\Feats{\textbf{Lucky (Wayfarer):} \par 
+Luck Points: You have 2 Luck Points/Long Rest. Can be spent in one of two ways\par 
+Advantage: When you roll a d20 Test, spend 1 Luck Point to give yourself Advantage
+
+Disadvantage: When a creature rolls a d20 for an attack against you, you can spend 1 Luck Point to to impose Disadvantage
+}
+
+
+% --- Appearance ---
+\Appearance{}
+
+% --- background & personality ---
+\Backstory{}
+
+\Alignment{}
+
+% --- Magic --- 
+\SpellcastingClass{Sorcerer 2}	%not used at the moment
+\SpellcastingAbility{Charisma}
+\SpellcastingModifier{+3}		%Spellcasting Ability Modifier (no proficiency this time)
+\SpellSaveDC{13}
+\SpellAttackBonus{+5}			%Spellcasting Ability Modifier + Proficiency
+
+%I combined them both into one command
+%\_____thLevelSpellSlots<total><expended>
+\FirstLevelSpellSlots{3}{0}
+
+% --- Spells --- 
+%\AddSpellReady<Level><Name><Casting Time><Range><CRM><Notes>
+%AddSpellNote<Note, appears in the line below, centered on the left>
+\AddSpellReady{0}{Light}{MA}{Touch}{}{Bright Light 20ft/Dim 20ft}
+\AddSpellReady{0}{Prestidigitation}{MA}{10ft}{}{}
+\AddSpellReady{0}{Shocking Grasp}{MA}{Touch}{}{1d8 Lightning}
+\AddSpellReady{0}{Sorcerous Burst}{MA}{120ft}{}{1d8 Acid, Cold, Fire, Lightning}
+\AddSpellReady{}{}{}{}{}{Poison, Psychic or Thunder}
+\AddSpellReady{1}{Burning Hands}{MA}{15ft Cone}{}{DEX13, 3d6 Fire}
+\AddSpellReady{1}{Detect Magic}{MA}{Self/30ft}{}{}
+\AddSpellReady{1}{Magic Missile}{MA}{120ft}{}{3 darts, 1d4+1 Force}
+\AddSpellReady{1}{Shield}{R}{Self}{}{+5AC till start of next turn}
+\AddSpellReady{}{}{}{}{}{no damage from Magic Missile}
+
+%at the moment you need to sort them manually
+
+\begin{document}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\onecolumn
+
+\newpage
+\rendercharactersheettf
+
+\newpage
+\renderspellsheettf
+
+
+\end{document}
