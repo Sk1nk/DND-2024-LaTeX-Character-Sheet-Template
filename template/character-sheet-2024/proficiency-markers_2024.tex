@@ -1,12 +1,21 @@
-\newcommand{\profradius}[0]{2.6 pt} %2.5pt for a TINY white border, used for positioning
+%\psframe[fillstyle=none,fillcolor=blue!20,linewidth=3pt,linecolor=red](15,200)(190,800)
+%
+%
+
+\newcommand{\profradius}[0]{4.1 pt} %2.6b for filling without border, %2.5pt for a TINY white border inside, used for positioning
+\newcommand{\wedgefradius}[0]{2.6 pt}
+
 \newcommand{\xleft}[0]{28.8}
 \newcommand{\xleftdex}[0]{28.675}
 \newcommand{\xright}[0]{170.35}
 
+\newrgbcolor{circleline}{.135 .122 .125}
+
 % STRENGTH 
 { 
-\pscircle[	linestyle = none,
-			linewidth = 0pt,
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle = solid,
 			fillcolor = strengthproficiency,
 			]%
@@ -15,20 +24,22 @@
 {
 \pswedge[	linestyle = none,
 			linewidth = 0pt,
+			linecolor = circleline,
 			fillstyle = solid,
 			fillcolor = strengthproficiencyhalf,
 			]%
- 			(\xleft,678.05){\profradius}{90}{270}
+ 			(\xleft,678.05){\wedgefradius}{90}{270}
 }
 
 % DEXTERITY
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline, 
 			fillstyle=solid, 
 			fillcolor=dexterityproficiency
 			]%
-         (\xleftdex,521){\profradius}
+         (\xleft,521){\profradius}
 }
 {
 \pswedge[	linestyle=none, 
@@ -36,13 +47,14 @@
 			fillstyle=solid, 
 			fillcolor=dexterityproficiencyhalf
 			]%
-         (\xleftdex,521){\profradius}{90}{270}
+         (\xleft,521){\wedgefradius}{90}{270}
 }
 
 % CONSTITUTION
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=constitutionproficiency
 			]%
@@ -54,13 +66,14 @@
 			fillstyle=solid, 
 			fillcolor=constitutionproficiencyhalf
 			]%
-         (\xleft,326.5){\profradius}{90}{270}
+         (\xleft,326.5){\wedgefradius}{90}{270}
 }
 
 % INTELLIGENCE  
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=intelligenceproficiency
 			]%
@@ -72,13 +85,14 @@
 			fillstyle=solid, 
 			fillcolor=intelligenceproficiencyhalf
 			]%
-         (\xright,781.2){\profradius}{90}{270}
+         (\xright,781.2){\wedgefradius}{90}{270}
 }
 
 % WISDOM
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=wisdomproficiency
 			]%
@@ -90,13 +104,14 @@
 			fillstyle=solid, 
 			fillcolor=wisdomproficiencyhalf
 			]%
-         (\xright,549.3){\profradius}{90}{270}
+         (\xright,549.3){\wedgefradius}{90}{270}
 }
 
 % CHARISMA
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=charismaproficiency
 			]%
@@ -108,18 +123,19 @@
 			fillstyle=solid, 
 			fillcolor=charismaproficiencyhalf
 			]%
-         (\xright,317.42){\profradius}{90}{270}
+         (\xright,317.42){\wedgefradius}{90}{270}
 }
 
 % SKILLS
 % ACROBATICS
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=acrobaticsproficiency
 			]%
-         (\xleftdex,494.9){\profradius}
+         (\xleft,494.9){\profradius}
 }
 {
 \pswedge[	linestyle=none, 
@@ -127,13 +143,14 @@
 			fillstyle=solid, 
 			fillcolor=acrobaticsproficiencyhalf
 			]%
-         (\xleftdex,494.9){\profradius}{90}{270}
+         (\xleft,494.9){\wedgefradius}{90}{270}
 }
 
 % ANIMAL HANDLING
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=animalhandlingproficiency
 			]%
@@ -145,13 +162,14 @@
 			fillstyle=solid, 
 			fillcolor=animalhandlingproficiencyhalf
 			]%
-         (\xright,523.21){\profradius}{90}{270}
+         (\xright,523.21){\wedgefradius}{90}{270}
 }
 
 % ARCANA
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=arcanaproficiency
 			]%
@@ -163,13 +181,14 @@
 			fillstyle=solid, 
 			fillcolor=arcanaproficiencyhalf
 			]%
-         (\xright,755.08){\profradius}{90}{270}
+         (\xright,755.08){\wedgefradius}{90}{270}
 }
 
 % ATHLETICS
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=athleticsproficiency
 			]%
@@ -181,13 +200,14 @@
 			fillstyle=solid, 
 			fillcolor=athleticsproficiencyhalf
 			]%
-         (\xleft,652){\profradius}{90}{270}
+         (\xleft,652){\wedgefradius}{90}{270}
 }
 
 % DECEPTION
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=deceptionproficiency
 			]%
@@ -199,13 +219,14 @@
 			fillstyle=solid, 
 			fillcolor=deceptionproficiencyhalf
 			]%
-         (\xright,291.28){\profradius}{90}{270}
+         (\xright,291.28){\wedgefradius}{90}{270}
 }
 
 % HISTORY
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=historyproficiency
 			]%
@@ -217,13 +238,14 @@
 			fillstyle=solid, 
 			fillcolor=historyproficiencyhalf
 			]%
-         (\xright,736.38){\profradius}{90}{270}
+         (\xright,736.38){\wedgefradius}{90}{270}
 }
 
 % INSIGHT
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=insightproficiency
 			]%
@@ -235,13 +257,14 @@
 			fillstyle=solid, 
 			fillcolor=insightproficiencyhalf
 			]%
-         (\xright,504.5){\profradius}{90}{270}
+         (\xright,504.5){\wedgefradius}{90}{270}
 }
 
 % INTIMIDATION
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=intimidationproficiency
 			]%
@@ -253,13 +276,14 @@
 			fillstyle=solid, 
 			fillcolor=intimidationproficiencyhalf
 			]%
-         (\xright,272.6){\profradius}{90}{270}
+         (\xright,272.6){\wedgefradius}{90}{270}
 }
 
 % INVESTIGATION
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=investigationproficiency
 			]%
@@ -271,13 +295,14 @@
 			fillstyle=solid, 
 			fillcolor=investigationproficiencyhalf
 			]%
-         (\xright,717.65){\profradius}{90}{270}
+         (\xright,717.65){\wedgefradius}{90}{270}
 }
 
 % MEDICINE
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=medicineproficiency
 			]%
@@ -289,13 +314,14 @@
 			fillstyle=solid, 
 			fillcolor=medicineproficiencyhalf
 			]%
-         (\xright,485.8){\profradius}{90}{270}
+         (\xright,485.8){\wedgefradius}{90}{270}
 }
 
 % NATURE
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=natureproficiency
 			]%
@@ -307,13 +333,14 @@
 			fillstyle=solid, 
 			fillcolor=natureproficiencyhalf
 			]%
-         (\xright,698.95){\profradius}{90}{270}
+         (\xright,698.95){\wedgefradius}{90}{270}
 }
 
 % PERCEPTION
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=perceptionproficiency
 			]%
@@ -325,13 +352,14 @@
 			fillstyle=solid, 
 			fillcolor=perceptionproficiencyhalf
 			]%
-         (\xright,467.05){\profradius}{90}{270}
+         (\xright,467.05){\wedgefradius}{90}{270}
 }
 
 % PERFORMANCE
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=performanceproficiency
 			]%
@@ -343,13 +371,14 @@
 			fillstyle=solid, 
 			fillcolor=performanceproficiencyhalf
 			]%
-         (\xright,253.85){\profradius}{90}{270}
+         (\xright,253.85){\wedgefradius}{90}{270}
 }
 
 % PERSUASION
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=persuasionproficiency
 			]%
@@ -361,13 +390,14 @@
 			fillstyle=solid, 
 			fillcolor=persuasionproficiencyhalf
 			]%
-         (\xright,235.15){\profradius}{90}{270}
+         (\xright,235.15){\wedgefradius}{90}{270}
 }
 
 % RELIGION
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=religionproficiency
 			]%
@@ -379,17 +409,18 @@
 			fillstyle=solid, 
 			fillcolor=religionproficiencyhalf
 			]%
-         (\xright,680.18){\profradius}{90}{270}
+         (\xright,680.18){\wedgefradius}{90}{270}
 }
 
 % SLEIGHT OF HAND
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=sleightofhandproficiency
 			]%
-         (\xleftdex,476.2){\profradius}
+         (\xleft,476.2){\profradius}
 }
 {
 \pswedge[	linestyle=none, 
@@ -397,17 +428,18 @@
 			fillstyle=solid, 
 			fillcolor=sleightofhandproficiencyhalf
 			]%
-         (\xleftdex,476.2){\profradius}{90}{270}
+         (\xleft,476.2){\wedgefradius}{90}{270}
 }
 
 % STEALTH
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=stealthproficiency
 			]%
-         (\xleftdex,457.45){\profradius}
+         (\xleft,457.45){\profradius}
 }
 {
 \pswedge[	linestyle=none, 
@@ -415,13 +447,14 @@
 			fillstyle=solid, 
 			fillcolor=stealthproficiencyhalf
 			]%
-         (\xleftdex,457.45){\profradius}{90}{270}
+         (\xleft,457.45){\wedgefradius}{90}{270}
 }
 
 % SURVIVAL
 {
-\pscircle[	linestyle=none, 
-			linewidth=0pt, 
+\pscircle[	linestyle = solid,
+			linewidth = 1pt,
+			linecolor = circleline,
 			fillstyle=solid, 
 			fillcolor=survivalproficiency
 			]%
@@ -433,7 +466,7 @@
 			fillstyle=solid, 
 			fillcolor=survivalproficiencyhalf
 			]%
-         (\xright,448.38){\profradius}{90}{270}
+         (\xright,448.38){\wedgefradius}{90}{270}
 }
 
 %%%%% Heroic inspiration field to color in
