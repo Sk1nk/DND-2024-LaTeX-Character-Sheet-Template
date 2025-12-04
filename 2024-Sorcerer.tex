@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage[justified]{dnd}
+%\DeclareEmphSequence{} maybe add another styling method later down the road
 
 \usepackage{dndtemplate}
 
@@ -106,7 +107,7 @@
 
 \SetAcrobaticsProficiency{0}
 \SetAnimalHandlingProficiency{0}
-\SetArcanaProficiency{0}
+\SetArcanaProficiency{1}
 \SetAthleticsProficiency{0}
 \SetDeceptionProficiency{0}
 \SetHistoryProficiency{0}
@@ -136,7 +137,7 @@
 \AddWeapon{Shocking Grasp}{+5}{1d8 Lightning}{Can't make Opportunity Attacks}
 \AddWeapon{Sorcerous Burst}{+5}{1d8*}{120ft, if roll 8, add another d8}
 \AddWeapon{Dagger}{+2}{1d4+2/p}{Finesse, Light, Thrown (20/60)}
-\AddWeapon{Unarmed Strike}{+2}{1 b}{Damage, Grapple or Shove}
+\AddWeapon{Unarmed Strike}{+2}{1/b}{Damage, Grapple or Shove}
 
 
 \SetLightArmorProficiency{0}
@@ -169,8 +170,8 @@ Traveler's Clothes
 
 \vspace{1em}
 \textbf{Unarmed Strike:} \par 
-\textit{Grapple:} DC10 STR or DEX save or be Grappled\par 
-\textit{Shove:} DC 10 STR or DEX save or be pushed 5ft and Prone
+\emph{Grapple:} DC10 STR or DEX save or be Grappled\par 
+\emph{Shove:} DC 10 STR or DEX save or be pushed 5ft and Prone
 
 \vspace{1em}
 \textbf{Sorcerous Burst:} Choose Acid, Cold, Fire, Lightning, Poison, Psychic or Thunder damage
@@ -178,14 +179,14 @@ Traveler's Clothes
 \vspace{2em}
 \textbf{Font of Magic:} 2 Sorcery Points
 \par 
-\textit{Convert Spell Slots to Sorcery Points:} expand a spell slot, gain number of Sorcery Points equal to slot's level (no action required)
+\emph{Convert Spell Slots to Sorcery Points:} expand a spell slot, gain number of Sorcery Points equal to slot's level (no action required)
 \par 
-\textit{Create Spell Slot:} As Bonus Action, spend 2 Sorcery Points for one Level 1 Spell Slot (vanishes on the end of a Long Rest)
+\emph{Create Spell Slot:} As Bonus Action, spend 2 Sorcery Points for one Level 1 Spell Slot (vanishes on the end of a Long Rest)
 
 \vspace{1em}
 \textbf{Metamagic:} alter spells to suit your needs \par 
-\textit{Seeking Spell:} 1 Sorcery Point, reroll the d20, you must use the new roll \par 
-\textit{Distant Spell:} 1 Sorcery Point, double the Spells range or make a Touch Spell  30ft range
+\emph{Seeking Spell:} 1 Sorcery Point, reroll the d20, you must use the new roll \par 
+\emph{Distant Spell:} 1 Sorcery Point, double the Spells range or make a Touch Spell  30ft range
 }
 
 
@@ -199,10 +200,10 @@ Traveler's Clothes
 }
 
 \Feats{\textbf{Lucky (Wayfarer):} \par 
-Luck Points: You have 2 Luck Points/Long Rest. Can be spent in one of two ways\par 
-Advantage: When you roll a d20 Test, spend 1 Luck Point to give yourself Advantage
+\emph{Luck Points:} You have 2 Luck Points/Long Rest. Can be spent in one of two ways\par 
+\emph{Advantage:} When you roll a d20 Test, spend 1 Luck Point to give yourself Advantage
 
-Disadvantage: When a creature rolls a d20 for an attack against you, you can spend 1 Luck Point to to impose Disadvantage
+\emph{Disadvantage:} When a creature rolls a d20 for an attack against you, you can spend 1 Luck Point to to impose Disadvantage
 }
 
 
