@@ -1,60 +1,54 @@
 \DocumentMetadata{}
 
-\documentclass[letterpaper,openany,oneside,twocolumn]{book}
-\usepackage{bookmark}
-\usepackage{graphicx}
+\documentclass[letterpaper]{article}
+%\usepackage{bookmark}
+%\usepackage{graphicx}
 \usepackage{geometry}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
 \usepackage[justified]{dnd}
-%\DeclareEmphSequence{} maybe add another styling method later down the road
+%\DeclareEmphSequence{} maybe I'll add another styling method later down the road
 
 \usepackage{dndtemplate}
 
-\setlength\oddsidemargin{\dimexpr(\paperwidth-\textwidth)/2 - 1in\relax}
-\setlength\evensidemargin{\oddsidemargin}
-
-% This switch is for changing the pictures to transparent or white background
-\TransparentImages{0}
-
-% Top Left Block
+% --- Top Left Block --- 
 \CharacterName{}
-% adds only main class and total level to prevent overflow
 \Background{Wayfarer}
 \Class{Sorcerer}
 \Species{Dragonborn (Gold)} 
-%\Species{Half-Elf} 
 \Subclass{}
 
 
-%Top Middle
+% --- Top Middle ---
 \Level{2}
 \XP{}
 \ArmorClass{10}
 
-%Top Right
-\MaxHitPoints{12}
-\CurrentHitPoints{12}
+% --- Top Right ---
+\CurrentHitPoints{}
 \TemporaryHitPoints{}
+\MaxHitPoints{12}
 
-
-\MaxHitDice{2d6}
 \SpentHitDice{}
+\MaxHitDice{2d6}
+
 
 %new command \DeathSaves<Successes><Failures>
 \DeathSaves{0}{0}
 
 
-%2. row
+% --- 2nd row --- 
+\Proficiency{2}
 \Initiative{2}
 \Speed{30ft}
-\Height{M}
-
-
-\HeroicInspiration{0} %bottom left
-\Proficiency{2}
+\Size{M}		%replaces old \Height, but uses the same variable ... \Height still works
 \Perception{11}
 
+\HeroicInspiration{0} %bottom left
 
-% Ability scores
+
+
+
+% --- Ability scores --- 
 \StrengthScore{10}
 \DexterityScore{14}
 \ConstitutionScore{14}
@@ -62,7 +56,7 @@
 \WisdomScore{13}
 \CharismaScore{16}
 
-% Ability modifiers
+% --- Ability modifiers --- 
 \StrengthModifier{0}%0
 \DexterityModifier{3}%3
 \ConstitutionModifier{1}%1
@@ -70,7 +64,7 @@
 \WisdomModifier{0}%0
 \CharismaModifier{2}%2
 
-% Saving Throws
+% --- Saving Throws --- 
 \StrengthSavingThrowModifier{0}
 \DexteritySavingThrowModifier{2}
 \ConstitutionSavingThrowModifier{2}
@@ -78,6 +72,7 @@
 \WisdomSavingThrowModifier{1}
 \CharismaSavingThrowModifier{3}
 
+%sorted alphabetically, maybe I'll sort after appearance
 \AcrobaticsSkillModifier{2}
 \AnimalHandlingSkillModifier{1}
 \ArcanaSkillModifier{1}
@@ -97,7 +92,7 @@
 \StealthSkillModifier{4}
 \SurvivalSkillModifier{1}
 
-% Proficiencies
+% --- Proficiency Markers ---
 \SetStrengthProficiency{0}
 \SetDexterityProficiency{0}
 \SetConstitutionProficiency{1}
@@ -124,22 +119,7 @@
 \SetStealthProficiency{1}
 \SetSurvivalProficiency{0}
 
-
-
-\CP{}
-\SP{}
-\GP{44}
-\EP{}
-\PP{}
-
-% --- Weapons --- 
-
-\AddWeapon{Shocking Grasp}{+5}{1d8 Lightning}{Can't make Opportunity Attacks}
-\AddWeapon{Sorcerous Burst}{+5}{1d8*}{120ft, if roll 8, add another d8}
-\AddWeapon{Dagger}{+2}{1d4+2/p}{Finesse, Light, Thrown (20/60)}
-\AddWeapon{Unarmed Strike}{+2}{1/b}{Damage, Grapple or Shove}
-
-
+% --- Equipment Training & Proficiencies
 \SetLightArmorProficiency{0}
 \SetMediumArmorProficiency{0}
 \SetHeavyArmorProficiency{0}
@@ -150,21 +130,14 @@
 
 \ToolsProficiencies{Thieve's Tools}
 
-\Languages{Common, Draconic, Goblin}
 
-\Equipment{
-Spear \par 
-Daggers (4) \par 
-Arcane Focus (crystal) \par 
-Dungeoneer's Pack \par 
-Three-Dragon Ante set \par 
-Bedroll \par 
-Pouches (2) \par 
-Traveler's Clothes
-}
-%\AddMagicItem<attuned><name of the item>
+% --- Weapons --- 
+\AddWeapon{Shocking Grasp}{+5}{1d8 Lightning}{Can't make Opportunity Attacks}
+\AddWeapon{Sorcerous Burst}{+5}{1d8*}{120ft, if roll 8, add another d8}
+\AddWeapon{Dagger}{+2}{1d4+2/p}{Finesse, Light, Thrown (20/60)}
+\AddWeapon{Unarmed Strike}{+2}{1/b}{Damage, Grapple or Shove}
 
-
+% --- Class Features
 \ClassFeatures{%
 \textbf{Innate Sorcery:} As a Bonus Action, for one Minute the DC of your Sorcerer spells increase by 1 and you have Advantage on attack rolls of Sorcerer spells you cast. Twice/Long Rest
 
@@ -189,7 +162,7 @@ Traveler's Clothes
 \emph{Distant Spell:} 1 Sorcery Point, double the Spells range or make a Touch Spell  30ft range
 }
 
-
+% --- Species Traits ---
 \SpecialTraits{\textbf{Breath Weapon:} Attack action to create 15-foot Cone or 30-foot Line of Fire. 1d10 damage, DC12 DEX save for half. Twice/Long Rest
 
 \vspace{1em}
@@ -199,6 +172,7 @@ Traveler's Clothes
 \textbf{Darkvision:} 60ft
 }
 
+% --- Feats --- 
 \Feats{\textbf{Lucky (Wayfarer):} \par 
 \emph{Luck Points:} You have 2 Luck Points/Long Rest. Can be spent in one of two ways\par 
 \emph{Advantage:} When you roll a d20 Test, spend 1 Luck Point to give yourself Advantage
@@ -206,6 +180,10 @@ Traveler's Clothes
 \emph{Disadvantage:} When a creature rolls a d20 for an attack against you, you can spend 1 Luck Point to to impose Disadvantage
 }
 
+%%%%%%%%%%%%%%%%%%%%
+%%%%% PAGE 2 %%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\TransparentImages{0}			% This switch is for changing the pictures (page 2) to transparent or white background
 
 % --- Appearance ---
 \Appearance{}
@@ -240,12 +218,33 @@ Traveler's Clothes
 \AddSpellReady{1}{Shield}{R}{Self}{}{+5AC till start of next turn}
 \AddSpellReady{}{}{}{}{}{no damage from Magic Missile}
 
-%at the moment you need to sort them manually
+
+% --- Languages ---
+\Languages{Common, Draconic, Goblin}
+
+% --- Equipment --- 
+\Equipment{
+Spear \par 
+Daggers (4) \par 
+Arcane Focus (crystal) \par 
+Dungeoneer's Pack \par 
+Three-Dragon Ante set \par 
+Bedroll \par 
+Pouches (2) \par 
+Traveler's Clothes
+}
+%\AddMagicItem<attuned><name of the item>
+
+
+% --- Money --- 
+\CP{}
+\SP{}
+\GP{44}
+\EP{}
+\PP{}
+
 
 \begin{document}
-\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
-\onecolumn
-
 \newpage
 \rendercharactersheettf
 
